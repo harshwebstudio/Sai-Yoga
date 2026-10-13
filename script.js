@@ -1,687 +1,468 @@
 
-/* ==========================================
-   SAI YOGA SHOP — SCRIPT.JS
-   PART 1 OF 2
-========================================== */
+/* =========================================
+   SAI YOGA SHOP — PART 1
+   Products, Search, Cart and Rendering
+========================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
-  /* SHOP CONFIGURATION */
-  const SHOP_NAME = "SAI YOGA SHOP";
-  const WHATSAPP_NUMBER = "919876543210";
+  /* OWNER WHATSAPP NUMBER */
+  const OWNER_WHATSAPP = "91XXXXXXXXXX";
 
-  /* SELECTORS */
-  const menuToggle = document.querySelector(
-    ".menu-toggle"
-  );
-
-  const mainNav = document.querySelector(
-    ".main-nav"
-  );
-
-  const cartButtons = document.querySelectorAll(
-    ".cart-button"
-  );
-
-  const cartDrawer = document.querySelector(
-    ".cart-drawer"
-  );
-
-  const cartCount = document.querySelector(
-    "#cartCount"
-  );
-
-  const cartItemsContainer = document.querySelector(
-    ".cart-items"
-  );
-
-  const cartTotal = document.querySelector(
-    ".cart-total"
-  );
-
-  const searchInput = document.querySelector(
-    "#productSearch, .product-search"
-  );
-
-  const categoryFilters = document.querySelectorAll(
-    ".filter-chip"
-  );
-
-  const sortSelect = document.querySelector(
-    "#sortProducts, .sort-box select"
-  );
-
-  const productGrid = document.querySelector(
-    ".product-grid"
-  );
-
-  let cart = [];
-  let activeCategory = "all";
-
-  /* MOBILE NAVIGATION */
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", function () {
-      const isOpen = mainNav.classList.toggle("open");
-
-      mainNav.classList.toggle("active", isOpen);
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-    });
-
-    mainNav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        mainNav.classList.remove(
-          "open",
-          "active",
-          "show"
-        );
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-      });
-    });
-  }
-
-  /* CART DRAWER */
-  function openCart() {
-    if (cartDrawer) {
-      cartDrawer.classList.add("open");
-      cartDrawer.setAttribute("aria-hidden", "false");
+  /* PRODUCT CATALOGUE
+     Prices are sample prices. Confirm them
+     with the shop owner before publishing.
+  */
+  const products = [
+    {
+      id: 1,
+      name: "Premium Yoga Mat",
+      category: "Yoga Mats",
+      price: 699,
+      description: "Comfortable, non-slip yoga mat.",
+      image: "https://placehold.co/600x450?text=Yoga+Mat"
+    },
+    {
+      id: 2,
+      name: "Extra Thick Yoga Mat",
+      category: "Yoga Mats",
+      price: 999,
+      description: "Extra cushioning for yoga practice.",
+      image: "https://placehold.co/600x450?text=Thick+Yoga+Mat"
+    },
+    {
+      id: 3,
+      name: "Yoga Block",
+      category: "Yoga Accessories",
+      price: 299,
+      description: "Support and balance for yoga poses.",
+      image: "https://placehold.co/600x450?text=Yoga+Block"
+    },
+    {
+      id: 4,
+      name: "Yoga Strap",
+      category: "Yoga Accessories",
+      price: 199,
+      description: "Stretching and flexibility accessory.",
+      image: "https://placehold.co/600x450?text=Yoga+Strap"
+    },
+    {
+      id: 5,
+      name: "Meditation Cushion",
+      category: "Meditation",
+      price: 799,
+      description: "Comfortable cushion for meditation.",
+      image: "https://placehold.co/600x450?text=Meditation+Cushion"
+    },
+    {
+      id: 6,
+      name: "Yoga Bolster",
+      category: "Yoga Accessories",
+      price: 1199,
+      description: "Support cushion for restorative yoga.",
+      image: "https://placehold.co/600x450?text=Yoga+Bolster"
+    },
+    {
+      id: 7,
+      name: "Resistance Bands Set",
+      category: "Fitness",
+      price: 499,
+      description: "A versatile set for mobility exercises.",
+      image: "https://placehold.co/600x450?text=Resistance+Bands"
+    },
+    {
+      id: 8,
+      name: "Meditation Eye Pillow",
+      category: "Meditation",
+      price: 249,
+      description: "Soft eye pillow for relaxation.",
+      image: "https://placehold.co/600x450?text=Eye+Pillow"
+    },
+    {
+      id: 9,
+      name: "Yoga Mat Bag",
+      category: "Yoga Accessories",
+      price: 349,
+      description: "Carry your yoga mat conveniently.",
+      image: "https://placehold.co/600x450?text=Yoga+Mat+Bag"
+    },
+    {
+      id: 10,
+      name: "Cork Yoga Block",
+      category: "Yoga Accessories",
+      price: 449,
+      description: "Firm cork support for yoga practice.",
+      image: "https://placehold.co/600x450?text=Cork+Yoga+Block"
+    },
+    {
+      id: 11,
+      name: "Pilates Ring",
+      category: "Fitness",
+      price: 599,
+      description: "Resistance ring for Pilates workouts.",
+      image: "https://placehold.co/600x450?text=Pilates+Ring"
+    },
+    {
+      id: 12,
+      name: "Meditation Mat",
+      category: "Meditation",
+      price: 899,
+      description: "Comfortable mat for meditation sessions.",
+      image: "https://placehold.co/600x450?text=Meditation+Mat"
     }
+  ];
+
+  const cart = [];
+
+  const money = value =>
+    "₹" + value.toLocaleString("en-IN");
+
+  const $ = selector => document.querySelector(selector);
+
+  /* CREATE PRODUCT SECTION IF MISSING */
+  let productSection = $(
+    "#products, #shop, .shop-section"
+  );
+
+  if (!productSection) {
+    productSection = document.createElement("section");
+    productSection.id = "products";
+    productSection.className = "section";
+
+    const main = $("main") || document.body;
+    main.appendChild(productSection);
   }
 
-  function closeCart() {
-    if (cartDrawer) {
-      cartDrawer.classList.remove("open");
-      cartDrawer.setAttribute("aria-hidden", "true");
-    }
-  }
+  productSection.innerHTML = `
+    <div class="container">
+      <h2>Our Yoga Products</h2>
+      <p>Explore our yoga and meditation collection.</p>
 
-  cartButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      if (cartDrawer) {
-        if (cartDrawer.classList.contains("open")) {
-          closeCart();
-        } else {
-          openCart();
-        }
-      }
+      <input
+        id="shopSearch"
+        type="search"
+        placeholder="Search products..."
+        aria-label="Search products"
+      >
+
+      <div id="shopCategories"></div>
+      <div id="shopProductGrid"
+           class="product-grid"></div>
+
+      <h2>Your Shopping Cart</h2>
+      <div id="shopCartItems"></div>
+
+      <p>
+        Total:
+        <strong id="shopCartTotal">₹0</strong>
+      </p>
+
+      <button id="shopCheckout" type="button">
+        Send Order to WhatsApp
+      </button>
+    </div>
+  `;
+
+  const grid = $("#shopProductGrid");
+  const categories = $("#shopCategories");
+  const search = $("#shopSearch");
+  const cartItems = $("#shopCartItems");
+  const cartTotal = $("#shopCartTotal");
+
+  let activeCategory = "All";
+
+  /* CATEGORY FILTERS */
+  const categoryNames = [
+    "All",
+    ...new Set(products.map(product => product.category))
+  ];
+
+  categories.innerHTML = categoryNames.map(category => `
+    <button
+      type="button"
+      class="shop-category-button"
+      data-category="${category}"
+    >${category}</button>
+  `).join("");
+
+  /* PRODUCT LIST */
+  function renderProducts() {
+    const term = search.value.trim().toLowerCase();
+
+    const filtered = products.filter(product => {
+      const matchesSearch =
+        (product.name + " " + product.description)
+          .toLowerCase().includes(term);
+
+      const matchesCategory =
+        activeCategory === "All" ||
+        product.category === activeCategory;
+
+      return matchesSearch && matchesCategory;
     });
+
+    grid.innerHTML = filtered.length
+      ? filtered.map(product => `
+        <article class="product-card">
+          <img
+            src="${product.image}"
+            alt="${product.name}"
+            loading="lazy"
+          >
+
+          <div class="product-info">
+            <small>${product.category}</small>
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <strong class="product-price">
+              ${money(product.price)}
+            </strong>
+
+            <button
+              type="button"
+              data-add="${product.id}"
+            >Add to Cart</button>
+
+            <button
+              type="button"
+              data-inquire="${product.id}"
+            >Enquire on WhatsApp</button>
+          </div>
+        </article>
+      `).join("")
+      : "<p>No products found.</p>";
+  }
+
+  categories.addEventListener("click", event => {
+    const button = event.target.closest("[data-category]");
+    if (!button) return;
+
+    activeCategory = button.dataset.category;
+    renderProducts();
   });
 
-  document.querySelectorAll(
-    ".cart-close, .close-cart, .cart-overlay"
-  ).forEach(function (element) {
-    element.addEventListener("click", closeCart);
-  });
+  search.addEventListener("input", renderProducts);
 
-  /* PRODUCT HELPERS */
-  function getProductCards() {
-    return document.querySelectorAll(
-      ".product-card"
+  /* CART DISPLAY */
+  function renderCart() {
+    cartItems.innerHTML = cart.length
+      ? cart.map(item => `
+        <div class="cart-item">
+          <span>${item.name}</span>
+          <span>${money(item.price)} × ${item.quantity}</span>
+
+          <button
+            type="button"
+            data-minus="${item.id}"
+          >−</button>
+
+          <button
+            type="button"
+            data-plus="${item.id}"
+          >+</button>
+
+          <button
+            type="button"
+            data-remove="${item.id}"
+          >Remove</button>
+        </div>
+      `).join("")
+      : "<p>Your cart is empty.</p>";
+
+    const total = cart.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
     );
+
+    cartTotal.textContent = money(total);
   }
 
-  function getProductName(card) {
-    const title = card.querySelector(
-      "h3, .product-name"
-    );
-
-    return title
-      ? title.textContent.trim()
-      : "Shop Product";
-  }
-
-  function getProductPrice(card) {
-    const priceElement = card.querySelector(
-      ".product-price, .price"
-    );
-
-    if (!priceElement) return 0;
-
-    const priceText = priceElement.textContent
-      .replace(/,/g, "")
-      .replace(/[^\d.]/g, "");
-
-    return Number(priceText) || 0;
-  }
-
-  function getProductImage(card) {
-    const image = card.querySelector("img");
-
-    return image ? image.src : "";
-  }
-
-  function formatPrice(amount) {
-    return "₹" + amount.toLocaleString("en-IN");
-  }
-
-  /* ADD PRODUCT TO CART */
-  function addToCart(card) {
-    const name = getProductName(card);
-    const price = getProductPrice(card);
-    const image = getProductImage(card);
-
-    const existingItem = cart.find(function (item) {
-      return item.name === name;
-    });
-
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.push({
-        name: name,
-        price: price,
-        image: image,
-        quantity: 1
-      });
-    }
-
-    renderCart();
-    openCart();
-  }
-
-  /* PRODUCT BUTTONS */
-  document.addEventListener("click", function (event) {
-    const addButton = event.target.closest(
-      ".add-to-cart-btn, .add-to-cart, [data-add-to-cart]"
-    );
+  grid.addEventListener("click", event => {
+    const addButton = event.target.closest("[data-add]");
+    const inquireButton = event.target.closest("[data-inquire]");
 
     if (addButton) {
-      const card = addButton.closest(".product-card");
+      const product = products.find(
+        item => item.id === Number(addButton.dataset.add)
+      );
 
-      if (card) {
-        event.preventDefault();
-        addToCart(card);
+      if (!product) return;
+
+      const existing = cart.find(
+        item => item.id === product.id
+      );
+
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      renderCart();
+      addButton.textContent = "Added ✓";
+
+      setTimeout(() => {
+        addButton.textContent = "Add to Cart";
+      }, 1000);
+    }
+
+    if (inquireButton) {
+      const product = products.find(
+        item => item.id === Number(inquireButton.dataset.inquire)
+      );
+
+      if (product) {
+        sendWhatsApp(
+          "Hello SAI YOGA SHOP, I want to enquire about:\n" +
+          product.name + "\nPrice: " + money(product.price)
+        );
       }
     }
   });
 
-  /* UPDATE CART DISPLAY */
-  function renderCart() {
-    const totalQuantity = cart.reduce(
-      function (sum, item) {
-        return sum + item.quantity;
-      },
-      0
-    );
-
-    const totalPrice = cart.reduce(
-      function (sum, item) {
-        return sum + item.price * item.quantity;
-      },
-      0
-    );
-
-    if (cartCount) {
-      cartCount.textContent = totalQuantity;
-    }
-
-    if (cartTotal) {
-      cartTotal.textContent = formatPrice(totalPrice);
-    }
-
-    if (!cartItemsContainer) return;
-
-    cartItemsContainer.replaceChildren();
-
-    if (cart.length === 0) {
-      const emptyMessage = document.createElement("p");
-
-      emptyMessage.textContent = "Your cart is empty.";
-      emptyMessage.className = "empty-cart-message";
-
-      cartItemsContainer.appendChild(emptyMessage);
-      return;
-    }
-
-    cart.forEach(function (item, index) {
-      const row = document.createElement("div");
-      row.className = "cart-item";
-
-      const details = document.createElement("div");
-      details.className = "cart-item-details";
-
-      const title = document.createElement("h4");
-      title.textContent = item.name;
-
-      const price = document.createElement("p");
-      price.textContent =
-        formatPrice(item.price) +
-        " × " +
-        item.quantity;
-
-      const controls = document.createElement("div");
-      controls.className = "cart-item-controls";
-
-      const minusButton = document.createElement("button");
-      minusButton.type = "button";
-      minusButton.textContent = "−";
-      minusButton.setAttribute(
-        "aria-label",
-        "Decrease quantity"
-      );
-      minusButton.dataset.cartAction = "decrease";
-      minusButton.dataset.index = index;
-
-      const quantity = document.createElement("span");
-      quantity.textContent = item.quantity;
-
-      const plusButton = document.createElement("button");
-      plusButton.type = "button";
-      plusButton.textContent = "+";
-      plusButton.setAttribute(
-        "aria-label",
-        "Increase quantity"
-      );
-      plusButton.dataset.cartAction = "increase";
-      plusButton.dataset.index = index;
-
-      const removeButton = document.createElement("button");
-      removeButton.type = "button";
-      removeButton.textContent = "Remove";
-      removeButton.dataset.cartAction = "remove";
-      removeButton.dataset.index = index;
-
-      controls.append(
-        minusButton,
-        quantity,
-        plusButton,
-        removeButton
-      );
-
-      details.append(title, price, controls);
-      row.appendChild(details);
-
-      cartItemsContainer.appendChild(row);
-    });
-  }
-
-  /* CART QUANTITY CONTROLS */
-  document.addEventListener("click", function (event) {
+  cartItems.addEventListener("click", event => {
     const button = event.target.closest(
-      "[data-cart-action]"
+      "[data-minus], [data-plus], [data-remove]"
     );
 
     if (!button) return;
 
-    const index = Number(button.dataset.index);
-    const action = button.dataset.cartAction;
+    const id = Number(
+      button.dataset.minus ||
+      button.dataset.plus ||
+      button.dataset.remove
+    );
 
-    if (!Number.isInteger(index) || !cart[index]) {
-      return;
-    }
+    const index = cart.findIndex(item => item.id === id);
 
-    if (action === "increase") {
-      cart[index].quantity += 1;
-    }
+    if (index < 0) return;
 
-    if (action === "decrease") {
-      cart[index].quantity -= 1;
+    if (button.hasAttribute("data-plus")) {
+      cart[index].quantity++;
+    } else if (button.hasAttribute("data-minus")) {
+      cart[index].quantity--;
 
       if (cart[index].quantity <= 0) {
         cart.splice(index, 1);
       }
-    }
-
-    if (action === "remove") {
+    } else {
       cart.splice(index, 1);
     }
 
     renderCart();
   });
 
-  /* INITIAL CART RENDER */
-  renderCart();
+  /* WHATSAPP HELPER */
+  function sendWhatsApp(message) {
+    const number = OWNER_WHATSAPP.replace(/\D/g, "");
 
-  /* PART 2 WILL CONTINUE BELOW */
-   
-  /* ==========================================
-     PRODUCT SEARCH
-  ========================================== */
-
-  function filterProducts() {
-    const searchTerm = searchInput
-      ? searchInput.value.trim().toLowerCase()
-      : "";
-
-    getProductCards().forEach(function (card) {
-      const name = getProductName(card).toLowerCase();
-      const description = card.textContent.toLowerCase();
-
-      const matchesSearch =
-        name.includes(searchTerm) ||
-        description.includes(searchTerm);
-
-      const category = (
-        card.dataset.category ||
-        card.getAttribute("data-category") ||
-        "all"
-      ).toLowerCase();
-
-      const matchesCategory =
-        activeCategory === "all" ||
-        category === activeCategory;
-
-      card.hidden = !(matchesSearch && matchesCategory);
-    });
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener("input", filterProducts);
-  }
-
-  /* ==========================================
-     CATEGORY FILTERS
-  ========================================== */
-
-  categoryFilters.forEach(function (button) {
-    button.addEventListener("click", function () {
-      categoryFilters.forEach(function (item) {
-        item.classList.remove("active");
-        item.setAttribute("aria-pressed", "false");
-      });
-
-      button.classList.add("active");
-      button.setAttribute("aria-pressed", "true");
-
-      activeCategory = (
-        button.dataset.category ||
-        button.dataset.filter ||
-        button.textContent.trim()
-      ).toLowerCase();
-
-      if (
-        activeCategory === "all products" ||
-        activeCategory === "all categories"
-      ) {
-        activeCategory = "all";
-      }
-
-      filterProducts();
-    });
-  });
-
-  /* ==========================================
-     PRODUCT SORTING
-  ========================================== */
-
-  if (sortSelect && productGrid) {
-    sortSelect.addEventListener("change", function () {
-      const cards = Array.from(getProductCards());
-
-      const sortValue = sortSelect.value.toLowerCase();
-
-      cards.sort(function (a, b) {
-        const priceA = getProductPrice(a);
-        const priceB = getProductPrice(b);
-
-        const nameA = getProductName(a);
-        const nameB = getProductName(b);
-
-        if (
-          sortValue.includes("low") ||
-          sortValue.includes("ascending")
-        ) {
-          return priceA - priceB;
-        }
-
-        if (
-          sortValue.includes("high") ||
-          sortValue.includes("descending")
-        ) {
-          return priceB - priceA;
-        }
-
-        if (sortValue.includes("name")) {
-          return nameA.localeCompare(nameB);
-        }
-
-        return 0;
-      });
-
-      cards.forEach(function (card) {
-        productGrid.appendChild(card);
-      });
-
-      filterProducts();
-    });
-  }
-
-  /* ==========================================
-     PRODUCT DETAILS MODAL
-  ========================================== */
-
-  const productModal = document.querySelector(
-    ".product-modal, .product-modal-overlay"
-  );
-
-  function closeProductModal() {
-    if (productModal) {
-      productModal.hidden = true;
-      productModal.classList.remove("open", "active");
-      document.body.style.overflow = "";
-    }
-  }
-
-  function showProductDetails(card) {
-    if (!productModal || !card) return;
-
-    const name = getProductName(card);
-    const price = getProductPrice(card);
-    const image = getProductImage(card);
-
-    const titleElement = productModal.querySelector(
-      ".product-modal-title, .modal-title, h2"
-    );
-
-    const priceElement = productModal.querySelector(
-      ".product-modal-price, .modal-price"
-    );
-
-    const imageElement = productModal.querySelector(
-      "img"
-    );
-
-    if (titleElement) {
-      titleElement.textContent = name;
-    }
-
-    if (priceElement) {
-      priceElement.textContent = formatPrice(price);
-    }
-
-    if (imageElement && image) {
-      imageElement.src = image;
-      imageElement.alt = name;
-    }
-
-    productModal.hidden = false;
-    productModal.classList.add("open", "active");
-    document.body.style.overflow = "hidden";
-  }
-
-  document.addEventListener("click", function (event) {
-    const viewButton = event.target.closest(
-      ".view-product-btn, .view-details, [data-view-product]"
-    );
-
-    if (viewButton) {
-      const card = viewButton.closest(".product-card");
-
-      if (card) {
-        event.preventDefault();
-        showProductDetails(card);
-      }
-    }
-
-    if (
-      event.target.closest(
-        ".product-modal-close, .modal-close"
-      )
-    ) {
-      closeProductModal();
-    }
-
-    if (
-      productModal &&
-      event.target === productModal
-    ) {
-      closeProductModal();
-    }
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      closeProductModal();
-      closeCart();
-    }
-  });
-
-  /* ==========================================
-     WHATSAPP ORDER
-  ========================================== */
-
-  function openWhatsApp(message) {
-    const number = WHATSAPP_NUMBER.replace(/\D/g, "");
-
-    if (!number || number === "919876543210") {
-      alert(
-        "Please set your shop's correct WhatsApp number in script.js."
-      );
+    if (!number || number.includes("XXXXXXXXXX")) {
+      alert("Please enter the shop owner's WhatsApp number in script.js.");
       return;
     }
 
-    const url =
-      "https://wa.me/" +
-      number +
-      "?text=" +
-      encodeURIComponent(message);
-
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.open(
+      "https://wa.me/" + number +
+      "?text=" + encodeURIComponent(message),
+      "_blank"
+    );
   }
 
-  document.addEventListener("click", function (event) {
-    const orderButton = event.target.closest(
-      ".whatsapp-order, .order-whatsapp, [data-whatsapp-order]"
+  renderProducts();
+  renderCart();
+
+  /* PART 2 CONTINUES BELOW */
+
+  /* =========================================
+     SAI YOGA SHOP — PART 2
+     Checkout and Inquiry Forms
+  ========================================= */
+
+  /* CART ORDER */
+  $("#shopCheckout").addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("Please add at least one product to your cart.");
+      return;
+    }
+
+    const total = cart.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
     );
 
-    if (orderButton) {
-      event.preventDefault();
+    let message = "SAI YOGA SHOP — NEW ORDER\n\n";
 
-      const card = orderButton.closest(".product-card");
-
-      if (card) {
-        const name = getProductName(card);
-        const price = getProductPrice(card);
-
-        openWhatsApp(
-          "Hello " + SHOP_NAME +
-          ", I want to enquire about:\n" +
-          "Product: " + name + "\n" +
-          "Listed price: " + formatPrice(price)
-        );
-      } else if (cart.length > 0) {
-        let message = "Hello " + SHOP_NAME +
-          ", I would like to order:\n\n";
-
-        cart.forEach(function (item) {
-          message +=
-            item.name +
-            " × " + item.quantity +
-            " — " +
-            formatPrice(item.price * item.quantity) +
-            "\n";
-        });
-
-        const total = cart.reduce(function (sum, item) {
-          return sum + item.price * item.quantity;
-        }, 0);
-
-        message +=
-          "\nEstimated total: " + formatPrice(total) +
-          "\nPlease confirm availability and delivery.";
-
-        openWhatsApp(message);
-      } else {
-        openWhatsApp(
-          "Hello " + SHOP_NAME +
-          ", I would like to enquire about your products."
-        );
-      }
-    }
-  });
-
-  /* ==========================================
-     GENERAL WHATSAPP LINKS
-  ========================================== */
-
-  document.querySelectorAll(
-    ".floating-whatsapp, .hero-whatsapp, .contact-whatsapp"
-  ).forEach(function (button) {
-    button.addEventListener("click", function (event) {
-      const href = button.getAttribute("href");
-
-      if (href && href.includes("wa.me/")) {
-        return;
-      }
-
-      event.preventDefault();
-
-      openWhatsApp(
-        "Hello " + SHOP_NAME +
-        ", I would like to know more about your products."
-      );
+    cart.forEach(item => {
+      message +=
+        item.name + "\n" +
+        "Quantity: " + item.quantity + "\n" +
+        "Price: " + money(item.price) + "\n" +
+        "Subtotal: " +
+        money(item.price * item.quantity) + "\n\n";
     });
+
+    message +=
+      "Estimated Total: " + money(total) + "\n\n" +
+      "Please confirm availability and send payment instructions.";
+
+    sendWhatsApp(message);
   });
 
-  /* ==========================================
-     NEWSLETTER / ENQUIRY FORM FEEDBACK
-  ========================================== */
+  /* CONNECT EXISTING INQUIRY FORMS */
+  document.querySelectorAll("form").forEach(form => {
+    form.addEventListener("submit", event => {
+      const fields = Array.from(
+        form.querySelectorAll("input, select, textarea")
+      ).filter(field => {
+        return field.name &&
+          field.type !== "submit" &&
+          field.type !== "button" &&
+          field.type !== "hidden";
+      });
 
-  document.querySelectorAll("form").forEach(function (form) {
-    form.addEventListener("submit", function (event) {
-      const isEnquiryForm = form.matches(
-        ".wholesale-form, .contact-form, [data-whatsapp-form]"
-      );
-
-      if (!isEnquiryForm) return;
+      if (fields.length === 0) return;
 
       event.preventDefault();
 
-      const formData = new FormData(form);
-      let message = "Hello " + SHOP_NAME +
-        ", I have a new enquiry:\n\n";
+      const lines = [];
 
-      formData.forEach(function (value, key) {
-        if (String(value).trim()) {
-          message +=
-            key + ": " + String(value).trim() + "\n";
+      fields.forEach(field => {
+        if (
+          (field.type === "checkbox" ||
+           field.type === "radio") &&
+          !field.checked
+        ) {
+          return;
+        }
+
+        const value = field.value.trim();
+
+        if (value) {
+          const label = form.querySelector(
+            'label[for="' + field.id + '"]'
+          );
+
+          const fieldName =
+            label?.textContent.trim() ||
+            field.name ||
+            field.placeholder ||
+            "Details";
+
+          lines.push(fieldName + ": " + value);
         }
       });
 
-      openWhatsApp(message);
+      const message =
+        "SAI YOGA SHOP — NEW INQUIRY\n\n" +
+        lines.join("\n") +
+        "\n\nPlease contact me regarding this inquiry.";
+
+      sendWhatsApp(message);
     });
   });
 
-  /* ==========================================
-     FOOTER YEAR
-  ========================================== */
-
-  document.querySelectorAll(
-    "#currentYear, .current-year"
-  ).forEach(function (element) {
-    element.textContent = new Date().getFullYear();
-  });
-
-  /* ==========================================
-     END OF SCRIPT
-  ========================================== */
+  /* END OF SCRIPT */
 });
-       
+   
+                          
