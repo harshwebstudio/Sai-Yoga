@@ -4,376 +4,753 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f7f8f2">
-  <meta name="description" content="Explore yoga mats, yoga accessories, meditation essentials and wellness products at Yoga Life. Order directly through WhatsApp.">
-  <title>Yoga Life | Move Naturally</title>
 
-  <link rel="icon" href="images/logo.png">
-  <link rel="stylesheet" href="style.css">
+  <title>Sai Yoga Shop | Quality Yoga Products at Best Prices</title>
+  <meta name="description" content="Shop quality yoga mats, cork mats, yoga blocks, belts, bolsters and meditation accessories at Sai Yoga Shop. Retail and wholesale supply across India.">
+  <meta name="keywords" content="Sai Yoga Shop, yoga products India, yoga mats, cork yoga mats, yoga blocks, wholesale yoga accessories, meditation cushions">
+  <meta name="author" content="Sai Yoga Shop">
+  <meta name="theme-color" content="#f7f6ef">
 
+  <meta property="og:title" content="Sai Yoga Shop">
+  <meta property="og:description" content="Quality Yoga Products at Best Prices">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saiyogashop.com">
+
+  <link rel="canonical" href="https://saiyogashop.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+  <!-- Announcement Bar -->
   <div class="announcement-bar">
-    <p>Find your balance. Shop your wellness.</p>
+    <p>Thoughtful wellness. Quality products. Better prices.</p>
   </div>
 
+  <!-- Header -->
   <header class="site-header">
-    <a href="#home" class="brand" aria-label="Yoga Life home"
-       onclick="showPage('home'); return false;">
-      <span class="brand-symbol"><i class="fa-solid fa-leaf"></i></span>
-      <span class="brand-name">YOGA <strong>LIFE</strong>
-        <small>LIVE WELL. MOVE WELL.</small>
-      </span>
-    </a>
+    <div class="container header-inner">
 
-    <button class="menu-toggle" id="menuToggle"
-      aria-label="Open navigation" aria-expanded="false">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+      <a href="#home" class="brand" aria-label="Sai Yoga Shop home">
+        <span class="brand-mark">SY</span>
+        <span class="brand-text">
+          <strong>SAI YOGA SHOP</strong>
+          <small>WELLNESS • EVERY DAY</small>
+        </span>
+      </a>
 
-    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-      <a href="#home" class="nav-link active" data-page="home">Home</a>
-      <a href="#products" class="nav-link" data-page="products">Products</a>
-      <a href="#contact" class="nav-link" data-page="contact">Contact</a>
-    </nav>
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation" aria-expanded="false">
+        ☰
+      </button>
 
-    <button class="cart-button" id="openCart" aria-label="Open shopping cart">
-      <i class="fa-solid fa-bag-shopping"></i>
-      <span>Cart</span>
-      <span class="cart-count" id="cartCount">0</span>
-    </button>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#categories">Categories</a>
+        <a href="#shop">Shop</a>
+        <a href="#wholesale">Wholesale</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-whatsapp"
+          href="https://wa.me/918169767623"
+          target="_blank" rel="noopener noreferrer">
+          WhatsApp Us ↗
+        </a>
+
+        <button class="cart-button" id="openCart"
+          type="button" aria-label="Open shopping cart">
+          Cart <span id="cartCount">0</span>
+        </button>
+      </div>
+
+    </div>
   </header>
 
   <main>
-    <!-- HOME PAGE -->
-    <section class="page active" id="homePage" data-section="home">
-      <section class="hero">
+
+    <!-- Home / Hero -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+
         <div class="hero-content">
-          <span class="eyebrow">
-            <i class="fa-solid fa-sun"></i> YOUR WELLNESS JOURNEY
-          </span>
+          <span class="eyebrow">YOUR WELLNESS, OUR PRIORITY</span>
 
-          <h1>Find your <em>balance.</em><br>Live your best life.</h1>
+          <h1>
+            Quality Yoga Products
+            <span>at Best Prices.</span>
+          </h1>
 
-          <p>
-            Thoughtfully selected essentials for your yoga practice,
-            mindful moments and everyday well-being.
+          <p class="hero-description">
+            Discover thoughtfully selected yoga and wellness essentials
+            for your daily practice, yoga studio and wellness centre.
           </p>
 
-          <div class="hero-actions">
-            <button class="btn btn-primary"
-              onclick="showPage('products')">
-              Explore Products <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-            <button class="btn btn-outline"
-              onclick="openWhatsApp('Hello Yoga Life! I would like to know more about your products.')">
-              <i class="fa-brands fa-whatsapp"></i> Chat With Us
-            </button>
+          <div class="hero-buttons">
+            <a href="#shop" class="btn btn-primary">Explore Products ↗</a>
+            <a href="#wholesale" class="btn btn-secondary">Wholesale Enquiry</a>
           </div>
 
           <div class="hero-trust">
-            <span><i class="fa-solid fa-leaf"></i> Mindful Living</span>
-            <span><i class="fa-solid fa-heart"></i> Everyday Wellness</span>
+            <span>✓ Quality-Checked Products</span>
+            <span>✓ Retail & Bulk Orders</span>
+            <span>✓ Delivery Across India</span>
           </div>
         </div>
 
-        <div class="hero-visual">
+        <div class="hero-image-wrap">
           <img
-            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=85"
-            alt="Yoga practice in a peaceful natural setting"
-            fetchpriority="high">
-          <div class="hero-note">
-            <i class="fa-solid fa-spa"></i>
-            <span>Make space for yourself.<small>Your journey starts here.</small></span>
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1506629905607-d9a4d2d7b9a8?auto=format&fit=crop&w=1000&q=85"
+            alt="Yoga and wellness practice essentials"
+            fetchpriority="high"
+            onerror="this.style.display='none'">
+
+          <div class="hero-image-note">
+            <span class="note-icon">✳</span>
+            <div>
+              <strong>Make Space for Wellness</strong>
+              <small>Essentials for every practice</small>
+            </div>
           </div>
         </div>
-      </section>
 
-      <section class="benefits section-wrap">
-        <div class="benefit">
-          <i class="fa-solid fa-leaf"></i>
-          <div><strong>Mindful Essentials</strong><small>For your daily practice</small></div>
-        </div>
-        <div class="benefit">
-          <i class="fa-solid fa-box-open"></i>
-          <div><strong>Personal Assistance</strong><small>Ask us before ordering</small></div>
-        </div>
-        <div class="benefit">
-          <i class="fa-brands fa-whatsapp"></i>
-          <div><strong>Direct Ordering</strong><small>Order through WhatsApp</small></div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section-wrap category-section">
+    <!-- Benefits -->
+    <section class="benefits-section">
+      <div class="container benefits-grid">
+
+        <article class="benefit-item">
+          <span class="benefit-icon">✳</span>
+          <div>
+            <h3>Quality Checked</h3>
+            <p>Products selected with care</p>
+          </div>
+        </article>
+
+        <article class="benefit-item">
+          <span class="benefit-icon">₹</span>
+          <div>
+            <h3>Value for Money</h3>
+            <p>Affordable product options</p>
+          </div>
+        </article>
+
+        <article class="benefit-item">
+          <span class="benefit-icon">▦</span>
+          <div>
+            <h3>Bulk Supply</h3>
+            <p>For studios and retailers</p>
+          </div>
+        </article>
+
+        <article class="benefit-item">
+          <span class="benefit-icon">↗</span>
+          <div>
+            <h3>Pan-India Delivery</h3>
+            <p>Delivery across India</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+
+        <div class="about-visual">
+          <div class="about-art">
+            <span class="about-art-symbol">ॐ</span>
+            <p>Move mindfully.<br>Live wholeheartedly.</p>
+          </div>
+          <span class="about-caption">A LITTLE MORE BALANCE, EVERY DAY</span>
+        </div>
+
+        <div class="about-content">
+          <span class="eyebrow">ABOUT SAI YOGA SHOP</span>
+
+          <h2>
+            Supporting your
+            <span>wellness journey.</span>
+          </h2>
+
+          <p>
+            Sai Yoga Shop is dedicated to providing high-quality, reliable
+            and affordable yoga products and wellness accessories.
+          </p>
+
+          <p>
+            We focus on product quality, customer satisfaction and building
+            long-term relationships with yoga practitioners, yoga teachers,
+            yoga studios and wellness centres.
+          </p>
+
+          <div class="founder-card">
+            <span class="founder-icon">S</span>
+            <div>
+              <small>FOUNDED BY</small>
+              <strong>Sumit Ashok Gharal</strong>
+            </div>
+          </div>
+
+          <a href="#contact" class="text-link">Get to know us ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Shop by Category -->
+    <section class="section categories-section" id="categories">
+      <div class="container">
+
         <div class="section-heading">
           <div>
-            <span class="eyebrow">EXPLORE YOUR PRACTICE</span>
-            <h2>Shop by <em>category</em></h2>
+            <span class="eyebrow">FIND YOUR ESSENTIALS</span>
+            <h2>Shop by <span>Category</span></h2>
           </div>
-          <button class="text-link" onclick="showPage('products')">
-            View all products <i class="fa-solid fa-arrow-right"></i>
-          </button>
+          <p>
+            Explore essentials for yoga, meditation, movement and mindful living.
+          </p>
         </div>
 
         <div class="category-grid">
-          <button class="category-card" onclick="filterProducts('Yoga Mats')">
-            <img src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=500&q=80"
-              alt="Yoga mat" loading="lazy">
-            <span>Yoga Mats <i class="fa-solid fa-arrow-right"></i></span>
-          </button>
 
-          <button class="category-card" onclick="filterProducts('Accessories')">
-            <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=500&q=80"
-              alt="Yoga practice accessories" loading="lazy">
-            <span>Accessories <i class="fa-solid fa-arrow-right"></i></span>
-          </button>
+          <a href="#shop" class="category-card" data-category="Yoga Mats">
+            <span class="category-number">01</span>
+            <span class="category-symbol">◉</span>
+            <h3>Yoga Mats</h3>
+            <p>Everyday practice essentials</p>
+            <span class="category-arrow">↗</span>
+          </a>
 
-          <button class="category-card" onclick="filterProducts('Meditation')">
-            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80"
-              alt="Meditation and mindfulness" loading="lazy">
-            <span>Meditation <i class="fa-solid fa-arrow-right"></i></span>
-          </button>
+          <a href="#shop" class="category-card" data-category="Yoga Props">
+            <span class="category-number">02</span>
+            <span class="category-symbol">▰</span>
+            <h3>Yoga Props</h3>
+            <p>Blocks, belts, wheels and ropes</p>
+            <span class="category-arrow">↗</span>
+          </a>
 
-          <button class="category-card" onclick="filterProducts('Clothing')">
-            <img src="https://images.unsplash.com/photo-1506629905607-d9b1f7d4d5e9?auto=format&fit=crop&w=500&q=80"
-              alt="Comfortable activewear" loading="lazy">
-            <span>Yoga Clothing <i class="fa-solid fa-arrow-right"></i></span>
-          </button>
+          <a href="#shop" class="category-card" data-category="Meditation">
+            <span class="category-number">03</span>
+            <span class="category-symbol">✳</span>
+            <h3>Meditation</h3>
+            <p>Cushions, bolsters and eye pillows</p>
+            <span class="category-arrow">↗</span>
+          </a>
+
+          <a href="#shop" class="category-card" data-category="Wellness Accessories">
+            <span class="category-number">04</span>
+            <span class="category-symbol">❋</span>
+            <h3>Wellness Accessories</h3>
+            <p>Tools for mindful routines</p>
+            <span class="category-arrow">↗</span>
+          </a>
+
         </div>
-      </section>
-
-      <section class="section-wrap featured-section">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">HANDPICKED FOR YOU</span>
-            <h2>Everyday <em>essentials</em></h2>
-          </div>
-          <button class="text-link" onclick="showPage('products')">
-            Shop collection <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-        <div class="product-grid" id="featuredProducts"></div>
-      </section>
-
-      <section class="wellness-banner">
-        <div>
-          <span class="eyebrow">A LITTLE MORE YOU-TIME</span>
-          <h2>Your practice.<br>Your pace. Your peace.</h2>
-          <p>Discover essentials to make every mindful moment count.</p>
-          <button class="btn btn-light" onclick="showPage('products')">
-            Discover the collection <i class="fa-solid fa-arrow-right"></i>
-          </button>
-        </div>
-      </section>
+      </div>
     </section>
 
-    <!-- PRODUCTS PAGE -->
-    <section class="page" id="productsPage" data-section="products">
-      <section class="page-banner">
-        <span class="eyebrow">THE YOGA LIFE COLLECTION</span>
-        <h1>Products for your <em>well-being.</em></h1>
-        <p>Explore your essentials for movement, rest and mindful living.</p>
-      </section>
+    <!-- Special Offers -->
+    <section class="offers-section" id="offers">
+      <div class="container offers-inner">
+        <div class="offers-copy">
+          <span class="eyebrow">MORE VALUE FOR YOUR PRACTICE</span>
+          <h2>Better wellness.<br><span>Better bulk prices.</span></h2>
+          <p>Explore offers on selected yoga props and qualifying bulk orders.</p>
+        </div>
 
-      <section class="section-wrap shop-section">
-        <div class="shop-toolbar">
+        <div class="offer-cards">
+          <article class="offer-card">
+            <strong>15% OFF</strong>
+            <span>Yoga Props</span>
+          </article>
+          <article class="offer-card">
+            <strong>20% OFF</strong>
+            <span>Orders above 10 pieces</span>
+          </article>
+          <article class="offer-card">
+            <strong>25% OFF</strong>
+            <span>Orders above 30 pieces</span>
+          </article>
+        </div>
+
+        <p class="offer-terms">
+          Offers are subject to applicable terms and conditions.
+          Confirm eligibility and final pricing before placing an order.
+        </p>
+      </div>
+    </section>
+
+    <!-- Product Catalogue -->
+    <section class="section shop-section" id="shop">
+      <div class="container">
+
+        <div class="section-heading">
           <div>
-            <h2>Our Collection</h2>
-            <p id="productResultCount">Explore all products</p>
+            <span class="eyebrow">THE SAI YOGA COLLECTION</span>
+            <h2>Find what you <span>need.</span></h2>
           </div>
+          <p>Browse yoga essentials for home practice, studios and bulk supply.</p>
+        </div>
+
+        <div class="shop-toolbar">
           <label class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" id="productSearch"
-              placeholder="Search products..." aria-label="Search products">
+            <span aria-hidden="true">⌕</span>
+            <input
+              type="search"
+              id="productSearch"
+              placeholder="Search yoga products..."
+              aria-label="Search products">
+          </label>
+
+          <label class="sort-box">
+            <span class="sr-only">Sort products</span>
+            <select id="productSort">
+              <option value="featured">Featured products</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
           </label>
         </div>
 
-        <div class="filter-row" id="filterRow">
-          <button class="filter-btn active" data-category="All">All Products</button>
-          <button class="filter-btn" data-category="Yoga Mats">Yoga Mats</button>
-          <button class="filter-btn" data-category="Accessories">Accessories</button>
-          <button class="filter-btn" data-category="Meditation">Meditation</button>
-          <button class="filter-btn" data-category="Clothing">Clothing</button>
-          <button class="filter-btn" data-category="Fitness">Fitness</button>
+        <div class="filter-chips" id="categoryFilters">
+          <button type="button" class="filter-chip active" data-filter="all">All Products</button>
+          <button type="button" class="filter-chip" data-filter="Yoga Mats">Yoga Mats</button>
+          <button type="button" class="filter-chip" data-filter="Yoga Props">Yoga Props</button>
+          <button type="button" class="filter-chip" data-filter="Meditation">Meditation</button>
+          <button type="button" class="filter-chip" data-filter="Wellness Accessories">Wellness Accessories</button>
         </div>
 
-        <div class="product-grid" id="allProducts"></div>
+        <div class="product-grid" id="allProducts" aria-live="polite">
+          <!-- JavaScript will render the product cards here. -->
+        </div>
 
         <div class="empty-products" id="emptyProducts" hidden>
-          <i class="fa-solid fa-magnifying-glass"></i>
           <h3>No products found</h3>
-          <p>Try another search or category.</p>
-          <button class="btn btn-primary" onclick="resetProductFilters()">
-            View all products
-          </button>
+          <p>Try another search or choose a different category.</p>
         </div>
-      </section>
+
+        <div class="shop-note">
+          <span>Need a larger quantity?</span>
+          <a href="#wholesale" class="text-link">Request wholesale pricing ↗</a>
+        </div>
+
+      </div>
     </section>
-            </main>
+
+    <!-- Wholesale Enquiry -->
+    <section class="section wholesale-section" id="wholesale">
+      <div class="container wholesale-grid">
+
+        <div class="wholesale-content">
+          <span class="eyebrow">FOR STUDIOS, TEACHERS & RESELLERS</span>
+          <h2>Buying in bulk?<br><span>Let's talk wholesale.</span></h2>
+
+          <p>
+            Tell us what you need and the quantity you're looking for.
+            Our team can discuss product availability, applicable offers
+            and pricing for your requirements.
+          </p>
+
+          <ul class="wholesale-list">
+            <li>Retail and wholesale supply</li>
+            <li>Bulk orders and quantity-based offers</li>
+            <li>Special pricing enquiries for yoga studios and teachers</li>
+            <li>Product options for wellness centres and retailers</li>
+          </ul>
+
+          <a href="https://wa.me/919920706386"
+            class="btn btn-primary"
+            target="_blank" rel="noopener noreferrer">
+            Discuss a Bulk Order ↗
+          </a>
+        </div>
+
+        <form class="wholesale-form" id="wholesaleForm">
+          <h3>Wholesale Enquiry</h3>
+          <p>Share your details to prepare an enquiry.</p>
+
+          <label for="wholesaleName">Your Name *</label>
+          <input id="wholesaleName" name="name" type="text"
+            placeholder="Enter your full name" required>
+
+          <label for="wholesalePhone">Phone Number *</label>
+          <input id="wholesalePhone" name="phone" type="tel"
+            inputmode="tel" placeholder="Enter your phone number" required>
+
+          <label for="wholesaleBusiness">Business / Studio Name</label>
+          <input id="wholesaleBusiness" name="business" type="text"
+            placeholder="Business or yoga studio name">
+
+          <label for="wholesaleProduct">Products Required *</label>
+          <select id="wholesaleProduct" name="product" required>
+            <option value="">Select a product category</option>
+            <option>Yoga Mats</option>
+            <option>Cork / TPE Yoga Mats</option>
+            <option>Yoga Blocks and Belts</option>
+            <option>Bolsters and Meditation Cushions</option>
+            <option>Yoga Wheels and Ropes</option>
+            <option>Other Yoga Accessories</option>
+            <option>Multiple Categories</option>
+          </select>
+
+          <label for="wholesaleQuantity">Estimated Quantity *</label>
+          <select id="wholesaleQuantity" name="quantity" required>
+            <option value="">Select quantity</option>
+            <option>1–10 pieces</option>
+            <option>11–30 pieces</option>
+            <option>31–50 pieces</option>
+            <option>51–100 pieces</option>
+            <option>100+ pieces</option>
+          </select>
+
+          <label for="wholesaleMessage">Additional Requirements</label>
+          <textarea id="wholesaleMessage" name="message" rows="4"
+            placeholder="Product types, delivery city or other details"></textarea>
+
+          <button type="submit" class="btn btn-primary btn-full">
+            Send Enquiry on WhatsApp ↗
+          </button>
+
+          <small>
+            Submitting this form will prepare a WhatsApp message.
+            No payment is taken through this form.
+          </small>
+        </form>
+
+      </div>
+  </section>
   
-<!-- CONTACT PAGE -->
-<section class="page" id="contactPage" data-section="contact">
-  <section class="page-banner">
-    <span class="eyebrow">WE'RE HERE FOR YOU</span>
-    <h1>Let's connect <em>mindfully.</em></h1>
-    <p>Questions about a product? Get in touch with Yoga Life directly.</p>
-  </section>
+    <!-- Customer Reviews -->
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">YOUR TRUST MATTERS</span>
+            <h2>Wellness built on <span>trust.</span></h2>
+          </div>
+          <p>We value every customer and work to build long-term relationships.</p>
+        </div>
 
-  <section class="section-wrap contact-layout">
-    <div class="contact-copy">
-      <span class="eyebrow">CONNECT WITH YOGA LIFE</span>
-      <h2>Your wellness journey starts with a <em>conversation.</em></h2>
-      <p>Need product details, availability or help choosing the right essentials? Reach out using any of the contact options.</p>
+        <div class="reviews-placeholder">
+          <span class="reviews-icon">♡</span>
+          <h3>Your experience matters to us.</h3>
+          <p>
+            Customer feedback will be featured here as verified reviews
+            become available.
+          </p>
+          <a href="https://wa.me/918169767623"
+            target="_blank" rel="noopener noreferrer"
+            class="text-link">Share your feedback ↗</a>
+        </div>
+      </div>
+    </section>
 
-      <div class="contact-note">
-        <i class="fa-solid fa-circle-check"></i>
-        <span><strong>Personal assistance</strong><small>Discuss products directly with the store owner.</small></span>
+    <!-- Online Shopping Platforms -->
+    <section class="section marketplace-section" id="marketplaces">
+      <div class="container marketplace-inner">
+        <div>
+          <span class="eyebrow">SHOPPING YOUR WAY</span>
+          <h2>Find us on your <span>preferred platform.</span></h2>
+          <p>
+            Sai Yoga Shop also lists shopping channels including Amazon,
+            Flipkart, Meesho, IndiaMART and JioMart. Contact us for the
+            correct store or catalogue link.
+          </p>
+        </div>
+
+        <div class="marketplace-list">
+          <span>Amazon</span>
+          <span>Flipkart</span>
+          <span>Meesho</span>
+          <span>IndiaMART</span>
+          <span>JioMart</span>
+          <a href="https://wa.me/918169767623"
+            target="_blank" rel="noopener noreferrer">WhatsApp Catalogue ↗</a>
+        </div>
+
+        <p class="marketplace-note">
+          Official seller profile links can be added once provided by the business.
+        </p>
+      </div>
+    </section>
+
+    <!-- Shipping / Returns / Refund Policy -->
+    <section class="section policies-section" id="policies">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">SHOP WITH CLARITY</span>
+            <h2>Our shopping <span>policies.</span></h2>
+          </div>
+          <p>Please confirm the applicable terms before placing an order.</p>
+        </div>
+
+        <div class="policy-grid">
+          <article class="policy-card">
+            <span class="policy-icon">↗</span>
+            <h3>Shipping & Delivery</h3>
+            <p>
+              Delivery is offered across India, subject to serviceability,
+              product availability and the confirmed order terms.
+              Delivery charges and timelines should be confirmed before dispatch.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <span class="policy-icon">↺</span>
+            <h3>Returns & Exchanges</h3>
+            <p>
+              Contact Sai Yoga Shop to confirm eligibility, the return window,
+              product condition requirements and the process applicable to your order.
+            </p>
+          </article>
+
+          <article class="policy-card">
+            <span class="policy-icon">₹</span>
+            <h3>Refund Policy</h3>
+            <p>
+              Refund eligibility, approved refund method and processing timelines
+              must be confirmed with the shop before an order is finalised.
+            </p>
+          </article>
+        </div>
+
+        <p class="policy-disclaimer">
+          These are preliminary policy summaries. The business must confirm and
+          publish its final shipping, cancellation, return and refund terms
+          before accepting online orders.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+
+        <div class="contact-content">
+          <span class="eyebrow">LET'S CONNECT</span>
+          <h2>Here to help you find your <span>balance.</span></h2>
+          <p>
+            Have a product question, a bulk requirement or a partnership idea?
+            Get in touch with Sai Yoga Shop.
+          </p>
+
+          <div class="contact-details">
+
+            <a href="tel:+918169767623" class="contact-item">
+              <span class="contact-icon">☎</span>
+              <span>
+                <small>CALL / WHATSAPP</small>
+                <strong>+91 81697 67623</strong>
+              </span>
+              <span class="contact-arrow">↗</span>
+            </a>
+
+            <a href="tel:+919920706386" class="contact-item">
+              <span class="contact-icon">☎</span>
+              <span>
+                <small>ALTERNATE CONTACT</small>
+                <strong>+91 99207 06386</strong>
+              </span>
+              <span class="contact-arrow">↗</span>
+            </a>
+
+            <a href="mailto:saiyogashop@gmail.com" class="contact-item">
+              <span class="contact-icon">✉</span>
+              <span>
+                <small>EMAIL</small>
+                <strong>saiyogashop@gmail.com</strong>
+              </span>
+              <span class="contact-arrow">↗</span>
+            </a>
+
+            <div class="contact-item">
+              <span class="contact-icon">⌖</span>
+              <span>
+                <small>BUSINESS LOCATION</small>
+                <strong>Ambivali West, Kalyan, Thane, Maharashtra – 421102</strong>
+              </span>
+            </div>
+
+          </div>
+
+          <a href="https://wa.me/918169767623"
+            class="btn btn-primary"
+            target="_blank" rel="noopener noreferrer">
+            Chat with Us on WhatsApp ↗
+          </a>
+        </div>
+
+        <div class="contact-side">
+          <div class="contact-message-card">
+            <span class="contact-decoration">✳</span>
+            <span class="eyebrow">OUR VISION</span>
+            <h3>Quality wellness products for everyone.</h3>
+            <p>
+              To make quality yoga and wellness products accessible
+              and affordable for everyone across India.
+            </p>
+          </div>
+
+          <div class="business-info-card">
+            <span class="eyebrow">BUSINESS DETAILS</span>
+            <p><strong>Business:</strong> Sai Yoga Shop</p>
+            <p><strong>Founder:</strong> Sumit Ashok Gharal</p>
+            <p><strong>GSTIN:</strong> 27ALHPG0267B1ZK</p>
+            <p><strong>Website:</strong> saiyogashop.com</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="final-cta">
+      <div class="container final-cta-inner">
+        <div>
+          <span class="eyebrow">START YOUR WELLNESS JOURNEY</span>
+          <h2>Your practice deserves the right essentials.</h2>
+          <p>Explore products or speak to us about a bulk order.</p>
+        </div>
+
+        <div class="final-cta-actions">
+          <a href="#shop" class="btn btn-light">Explore the Shop ↗</a>
+          <a href="https://wa.me/919920706386"
+            class="btn btn-outline-light"
+            target="_blank" rel="noopener noreferrer">
+            Wholesale Enquiry
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-main">
+
+      <div class="footer-brand">
+        <a href="#home" class="brand footer-logo">
+          <span class="brand-mark">SY</span>
+          <span class="brand-text">
+            <strong>SAI YOGA SHOP</strong>
+            <small>WELLNESS • EVERY DAY</small>
+          </span>
+        </a>
+        <p>Quality Yoga Products at Best Prices.</p>
+        <p class="footer-vision">
+          Making quality yoga and wellness essentials more accessible across India.
+        </p>
       </div>
 
-      <div class="contact-note">
-        <i class="fa-solid fa-bag-shopping"></i>
-        <span><strong>Simple ordering</strong><small>Choose products and send your order on WhatsApp.</small></span>
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#categories">Categories</a>
+        <a href="#shop">Shop Products</a>
+        <a href="#wholesale">Wholesale Enquiry</a>
       </div>
+
+      <div class="footer-column">
+        <h3>Customer Care</h3>
+        <a href="#policies">Shipping Policy</a>
+        <a href="#policies">Returns & Exchanges</a>
+        <a href="#policies">Refund Policy</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#marketplaces">Shopping Platforms</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Get in Touch</h3>
+        <a href="tel:+918169767623">+91 81697 67623</a>
+        <a href="tel:+919920706386">+91 99207 06386</a>
+        <a href="mailto:saiyogashop@gmail.com">Email Sai Yoga Shop</a>
+        <a href="https://wa.me/918169767623"
+          target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+      </div>
+
     </div>
 
-    <div class="contact-cards">
-      <a class="contact-card whatsapp-card"
-        href="https://wa.me/919987475783"
-        target="_blank" rel="noopener noreferrer">
-        <span class="contact-icon"><i class="fa-brands fa-whatsapp"></i></span>
-        <span class="contact-card-copy">
-          <strong>WhatsApp Us</strong>
-          <small>Ask questions or place an order</small>
-        </span>
-        <span class="click-label">CLICK NOW <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-      </a>
-
-      <!-- Replace with the owner's actual Instagram URL -->
-      <a class="contact-card instagram-card"
-        href="https://www.instagram.com/"
-        target="_blank" rel="noopener noreferrer">
-        <span class="contact-icon"><i class="fa-brands fa-instagram"></i></span>
-        <span class="contact-card-copy">
-          <strong>Instagram</strong>
-          <small>Visit our social profile</small>
-        </span>
-        <span class="click-label">CLICK NOW <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-      </a>
-
-      <a class="contact-card call-card" href="tel:+919987475783">
-        <span class="contact-icon"><i class="fa-solid fa-phone"></i></span>
-        <span class="contact-card-copy">
-          <strong>Call Us</strong>
-          <small>Speak directly with the owner</small>
-        </span>
-        <span class="click-label">CLICK NOW <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-      </a>
-
-      <!-- Replace with the owner's actual email -->
-      <a class="contact-card email-card"
-        href="mailto:?subject=Yoga%20Life%20Product%20Enquiry">
-        <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
-        <span class="contact-card-copy">
-          <strong>Email Us</strong>
-          <small>Send a product enquiry</small>
-        </span>
-        <span class="click-label">CLICK NOW <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-      </a>
+    <div class="container footer-bottom">
+      <p>© <span id="currentYear">2026</span> Sai Yoga Shop. All rights reserved.</p>
+      <p>Made for mindful living.</p>
     </div>
-  </section>
+  </footer>
 
-  <section class="section-wrap contact-bottom">
-    <div class="contact-bottom-inner">
-      <i class="fa-solid fa-spa"></i>
-      <h2>Need help choosing?</h2>
-      <p>Tell us what you're looking for. We'll help you explore your options.</p>
-      <button class="btn btn-primary"
-        onclick="openWhatsApp('Hello Yoga Life! I need help choosing yoga products.')">
-        <i class="fa-brands fa-whatsapp"></i> Chat With Us
-      </button>
-    </div>
-  </section>
-</section>
+  <!-- Floating WhatsApp Button -->
+  <a class="floating-whatsapp"
+    href="https://wa.me/918169767623"
+    target="_blank" rel="noopener noreferrer"
+    aria-label="Chat with Sai Yoga Shop on WhatsApp">
+    <span aria-hidden="true">✆</span>
+    <span>Chat with us</span>
+  </a>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-main">
-    <a href="#home" class="brand footer-brand"
-      onclick="showPage('home'); return false;">
-      <span class="brand-symbol"><i class="fa-solid fa-leaf"></i></span>
-      <span class="brand-name">YOGA <strong>LIFE</strong>
-        <small>LIVE WELL. MOVE WELL.</small>
-      </span>
-    </a>
+  <!-- Shopping Cart Overlay -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+    <div class="cart-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cartHeading">
 
-    <p>Mindful essentials for movement, rest and everyday wellness.</p>
+      <div class="cart-header">
+        <div>
+          <span class="eyebrow">YOUR SELECTION</span>
+          <h2 id="cartHeading">Shopping Cart</h2>
+          <p><span id="cartTitleCount">0</span> items in your cart</p>
+        </div>
 
-    <div class="footer-links">
-      <button onclick="showPage('home')">Home</button>
-      <button onclick="showPage('products')">Products</button>
-      <button onclick="showPage('contact')">Contact</button>
-    </div>
+        <button type="button" id="closeCart"
+          class="cart-close" aria-label="Close shopping cart">×</button>
+      </div>
 
-    <a class="footer-social"
-      href="https://wa.me/919987475783"
-      target="_blank" rel="noopener noreferrer"
-      aria-label="Contact Yoga Life on WhatsApp">
-      <i class="fa-brands fa-whatsapp"></i> Connect with us
-    </a>
-  </div>
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+          <span>♡</span>
+          <h3>Your cart is waiting.</h3>
+          <p>Add products to see them here.</p>
+          <button type="button" id="continueShopping"
+            class="btn btn-secondary">Continue Shopping</button>
+        </div>
+      </div>
 
-  <div class="footer-bottom">
-    <p>© <span id="currentYear">2026</span> Yoga Life. All rights reserved.</p>
-    <p>Move mindfully. Live fully.</p>
-  </div>
-</footer>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Estimated Total</span>
+          <strong id="cartTotal">₹0</strong>
+        </div>
 
-<!-- CART DRAWER -->
-<div class="cart-overlay" id="cartOverlay"></div>
+        <p class="cart-disclaimer">
+          Final prices, availability, delivery charges and eligible discounts
+          must be confirmed by the shop.
+        </p>
 
-<aside class="cart-drawer" id="cartDrawer"
-  aria-label="Shopping cart" aria-hidden="true">
-  <div class="cart-header">
-    <div>
-      <span class="eyebrow">YOUR SELECTION</span>
-      <h2>Your Cart <span id="cartTitleCount">(0)</span></h2>
-    </div>
-    <button class="icon-button" id="closeCart" aria-label="Close cart">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-  </div>
+        <button type="button" id="checkoutWhatsApp"
+          class="btn btn-primary btn-full">
+          Enquire / Order on WhatsApp ↗
+        </button>
 
-  <div class="cart-items" id="cartItems">
-    <div class="cart-empty">
-      <i class="fa-solid fa-bag-shopping"></i>
-      <h3>Your cart is waiting</h3>
-      <p>Add products you love to get started.</p>
-      <button class="btn btn-primary" id="continueShopping">Explore Products</button>
+        <small>Secure online payment will be enabled after payment gateway setup.</small>
+      </div>
+
     </div>
   </div>
 
-  <div class="cart-summary">
-    <div class="cart-total">
-      <span>Estimated total</span>
-      <strong id="cartTotal">₹0</strong>
-    </div>
-    <p class="cart-disclaimer">Final availability, delivery and pricing will be confirmed by the store owner.</p>
-    <button class="btn btn-whatsapp btn-full" id="checkoutWhatsApp">
-      <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
-    </button>
-    <p class="secure-note"><i class="fa-solid fa-message"></i> No online payment. Send your order directly to the owner.</p>
-  </div>
-</aside>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script src="script.js"></script>
+  <!-- Payment gateway integration is not yet configured. -->
+  <script src="script.js"></script>
 </body>
-        </html>
-                          
+</html>
