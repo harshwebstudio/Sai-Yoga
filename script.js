@@ -14,104 +14,107 @@ document.addEventListener("DOMContentLoaded", () => {
      Prices are sample prices. Confirm them
      with the shop owner before publishing.
   */
-  const products = [
-    {
-      id: 1,
-      name: "Premium Yoga Mat",
-      category: "Yoga Mats",
-      price: 699,
-      description: "Comfortable, non-slip yoga mat.",
-      image: "https://placehold.co/600x450?text=Yoga+Mat"
-    },
-    {
-      id: 2,
-      name: "Extra Thick Yoga Mat",
-      category: "Yoga Mats",
-      price: 999,
-      description: "Extra cushioning for yoga practice.",
-      image: "https://placehold.co/600x450?text=Thick+Yoga+Mat"
-    },
-    {
-      id: 3,
-      name: "Yoga Block",
-      category: "Yoga Accessories",
-      price: 299,
-      description: "Support and balance for yoga poses.",
-      image: "https://placehold.co/600x450?text=Yoga+Block"
-    },
-    {
-      id: 4,
-      name: "Yoga Strap",
-      category: "Yoga Accessories",
-      price: 199,
-      description: "Stretching and flexibility accessory.",
-      image: "https://placehold.co/600x450?text=Yoga+Strap"
-    },
-    {
-      id: 5,
-      name: "Meditation Cushion",
-      category: "Meditation",
-      price: 799,
-      description: "Comfortable cushion for meditation.",
-      image: "https://placehold.co/600x450?text=Meditation+Cushion"
-    },
-    {
-      id: 6,
-      name: "Yoga Bolster",
-      category: "Yoga Accessories",
-      price: 1199,
-      description: "Support cushion for restorative yoga.",
-      image: "https://placehold.co/600x450?text=Yoga+Bolster"
-    },
-    {
-      id: 7,
-      name: "Resistance Bands Set",
-      category: "Fitness",
-      price: 499,
-      description: "A versatile set for mobility exercises.",
-      image: "https://placehold.co/600x450?text=Resistance+Bands"
-    },
-    {
-      id: 8,
-      name: "Meditation Eye Pillow",
-      category: "Meditation",
-      price: 249,
-      description: "Soft eye pillow for relaxation.",
-      image: "https://placehold.co/600x450?text=Eye+Pillow"
-    },
-    {
-      id: 9,
-      name: "Yoga Mat Bag",
-      category: "Yoga Accessories",
-      price: 349,
-      description: "Carry your yoga mat conveniently.",
-      image: "https://placehold.co/600x450?text=Yoga+Mat+Bag"
-    },
-    {
-      id: 10,
-      name: "Cork Yoga Block",
-      category: "Yoga Accessories",
-      price: 449,
-      description: "Firm cork support for yoga practice.",
-      image: "https://placehold.co/600x450?text=Cork+Yoga+Block"
-    },
-    {
-      id: 11,
-      name: "Pilates Ring",
-      category: "Fitness",
-      price: 599,
-      description: "Resistance ring for Pilates workouts.",
-      image: "https://placehold.co/600x450?text=Pilates+Ring"
-    },
-    {
-      id: 12,
-      name: "Meditation Mat",
-      category: "Meditation",
-      price: 899,
-      description: "Comfortable mat for meditation sessions.",
-      image: "https://placehold.co/600x450?text=Meditation+Mat"
-    }
-  ];
+  
+
+const products = [
+  {
+    id: 1,
+    name: "Premium Yoga Mat",
+    category: "Yoga Mats",
+    price: 699,
+    description: "Comfortable, non-slip yoga mat.",
+    image: "images/01-premium-yoga-mat.jpg"
+  },
+  {
+    id: 2,
+    name: "Extra Thick Yoga Mat",
+    category: "Yoga Mats",
+    price: 999,
+    description: "Extra cushioning for yoga practice.",
+    image: "images/02-extra-thick-yoga-mat.jpg"
+  },
+  {
+    id: 3,
+    name: "Yoga Block",
+    category: "Yoga Accessories",
+    price: 299,
+    description: "Support and balance for yoga poses.",
+    image: "images/03-yoga-block.jpg"
+  },
+  {
+    id: 4,
+    name: "Yoga Strap",
+    category: "Yoga Accessories",
+    price: 199,
+    description: "Stretching and flexibility accessory.",
+    image: "images/04-yoga-strap.jpg"
+  },
+  {
+    id: 5,
+    name: "Meditation Cushion",
+    category: "Meditation",
+    price: 799,
+    description: "Comfortable cushion for meditation.",
+    image: "images/05-meditation-cushion.jpg"
+  },
+  {
+    id: 6,
+    name: "Yoga Bolster",
+    category: "Yoga Accessories",
+    price: 1199,
+    description: "Support cushion for restorative yoga.",
+    image: "images/06-yoga-bolster.jpg"
+  },
+  {
+    id: 7,
+    name: "Resistance Bands Set",
+    category: "Fitness",
+    price: 499,
+    description: "A versatile set for mobility exercises.",
+    image: "images/07-resistance-bands-set.jpg"
+  },
+  {
+    id: 8,
+    name: "Meditation Eye Pillow",
+    category: "Meditation",
+    price: 249,
+    description: "Soft eye pillow for relaxation.",
+    image: "images/08-meditation-eye-pillow.jpg"
+  },
+  {
+    id: 9,
+    name: "Yoga Mat Bag",
+    category: "Yoga Accessories",
+    price: 349,
+    description: "Carry your yoga mat conveniently.",
+    image: "images/09-yoga-mat-bag.jpg"
+  },
+  {
+    id: 10,
+    name: "Cork Yoga Block",
+    category: "Yoga Accessories",
+    price: 449,
+    description: "Firm cork support for yoga practice.",
+    image: "images/10-cork-yoga-block.jpg"
+  },
+  {
+    id: 11,
+    name: "Pilates Ring",
+    category: "Fitness",
+    price: 599,
+    description: "Resistance ring for Pilates workouts.",
+    image: "images/11-pilates-ring.jpg"
+  },
+  {
+    id: 12,
+    name: "Meditation Mat",
+    category: "Meditation",
+    price: 899,
+    description: "Comfortable mat for meditation sessions.",
+    image: "images/12-meditation-mat.jpg"
+  }
+];
+     
 
   const cart = [];
 
