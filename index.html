@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8f2">
+  <meta name="description" content="Explore yoga mats, yoga accessories, meditation essentials and wellness products at Yoga Life. Order directly through WhatsApp.">
+  <title>Yoga Life | Move Naturally</title>
+
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <div class="announcement-bar">
+    <p>Find your balance. Shop your wellness.</p>
+  </div>
+
+  <header class="site-header">
+    <a href="#home" class="brand" aria-label="Yoga Life home"
+       onclick="showPage('home'); return false;">
+      <span class="brand-symbol"><i class="fa-solid fa-leaf"></i></span>
+      <span class="brand-name">YOGA <strong>LIFE</strong>
+        <small>LIVE WELL. MOVE WELL.</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" class="nav-link active" data-page="home">Home</a>
+      <a href="#products" class="nav-link" data-page="products">Products</a>
+      <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+    </nav>
+
+    <button class="cart-button" id="openCart" aria-label="Open shopping cart">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span>Cart</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- HOME PAGE -->
+    <section class="page active" id="homePage" data-section="home">
+      <section class="hero">
+        <div class="hero-content">
+          <span class="eyebrow">
+            <i class="fa-solid fa-sun"></i> YOUR WELLNESS JOURNEY
+          </span>
+
+          <h1>Find your <em>balance.</em><br>Live your best life.</h1>
+
+          <p>
+            Thoughtfully selected essentials for your yoga practice,
+            mindful moments and everyday well-being.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary"
+              onclick="showPage('products')">
+              Explore Products <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <button class="btn btn-outline"
+              onclick="openWhatsApp('Hello Yoga Life! I would like to know more about your products.')">
+              <i class="fa-brands fa-whatsapp"></i> Chat With Us
+            </button>
+          </div>
+
+          <div class="hero-trust">
+            <span><i class="fa-solid fa-leaf"></i> Mindful Living</span>
+            <span><i class="fa-solid fa-heart"></i> Everyday Wellness</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=85"
+            alt="Yoga practice in a peaceful natural setting"
+            fetchpriority="high">
+          <div class="hero-note">
+            <i class="fa-solid fa-spa"></i>
+            <span>Make space for yourself.<small>Your journey starts here.</small></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits section-wrap">
+        <div class="benefit">
+          <i class="fa-solid fa-leaf"></i>
+          <div><strong>Mindful Essentials</strong><small>For your daily practice</small></div>
+        </div>
+        <div class="benefit">
+          <i class="fa-solid fa-box-open"></i>
+          <div><strong>Personal Assistance</strong><small>Ask us before ordering</small></div>
+        </div>
+        <div class="benefit">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div><strong>Direct Ordering</strong><small>Order through WhatsApp</small></div>
+        </div>
+      </section>
+
+      <section class="section-wrap category-section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">EXPLORE YOUR PRACTICE</span>
+            <h2>Shop by <em>category</em></h2>
+          </div>
+          <button class="text-link" onclick="showPage('products')">
+            View all products <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-card" onclick="filterProducts('Yoga Mats')">
+            <img src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=500&q=80"
+              alt="Yoga mat" loading="lazy">
+            <span>Yoga Mats <i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+
+          <button class="category-card" onclick="filterProducts('Accessories')">
+            <img src="https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=500&q=80"
+              alt="Yoga practice accessories" loading="lazy">
+            <span>Accessories <i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+
+          <button class="category-card" onclick="filterProducts('Meditation')">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80"
+              alt="Meditation and mindfulness" loading="lazy">
+            <span>Meditation <i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+
+          <button class="category-card" onclick="filterProducts('Clothing')">
+            <img src="https://images.unsplash.com/photo-1506629905607-d9b1f7d4d5e9?auto=format&fit=crop&w=500&q=80"
+              alt="Comfortable activewear" loading="lazy">
+            <span>Yoga Clothing <i class="fa-solid fa-arrow-right"></i></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="section-wrap featured-section">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">HANDPICKED FOR YOU</span>
+            <h2>Everyday <em>essentials</em></h2>
+          </div>
+          <button class="text-link" onclick="showPage('products')">
+            Shop collection <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <div class="product-grid" id="featuredProducts"></div>
+      </section>
+
+      <section class="wellness-banner">
+        <div>
+          <span class="eyebrow">A LITTLE MORE YOU-TIME</span>
+          <h2>Your practice.<br>Your pace. Your peace.</h2>
+          <p>Discover essentials to make every mindful moment count.</p>
+          <button class="btn btn-light" onclick="showPage('products')">
+            Discover the collection <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <!-- PRODUCTS PAGE -->
+    <section class="page" id="productsPage" data-section="products">
+      <section class="page-banner">
+        <span class="eyebrow">THE YOGA LIFE COLLECTION</span>
+        <h1>Products for your <em>well-being.</em></h1>
+        <p>Explore your essentials for movement, rest and mindful living.</p>
+      </section>
+
+      <section class="section-wrap shop-section">
+        <div class="shop-toolbar">
+          <div>
+            <h2>Our Collection</h2>
+            <p id="productResultCount">Explore all products</p>
+          </div>
+          <label class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="productSearch"
+              placeholder="Search products..." aria-label="Search products">
+          </label>
+        </div>
+
+        <div class="filter-row" id="filterRow">
+          <button class="filter-btn active" data-category="All">All Products</button>
+          <button class="filter-btn" data-category="Yoga Mats">Yoga Mats</button>
+          <button class="filter-btn" data-category="Accessories">Accessories</button>
+          <button class="filter-btn" data-category="Meditation">Meditation</button>
+          <button class="filter-btn" data-category="Clothing">Clothing</button>
+          <button class="filter-btn" data-category="Fitness">Fitness</button>
+        </div>
+
+        <div class="product-grid" id="allProducts"></div>
+
+        <div class="empty-products" id="emptyProducts" hidden>
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h3>No products found</h3>
+          <p>Try another search or category.</p>
+          <button class="btn btn-primary" onclick="resetProductFilters()">
+            View all products
+          </button>
+        </div>
+      </section>
+    </section>
+            </main>
+  
+<!-- CONTACT PAGE -->
+<section class="page" id="contactPage" data-section="contact">
+  <section class="page-banner">
+    <span class="eyebrow">WE'RE HERE FOR YOU</span>
+    <h1>Let's connect <em>mindfully.</em></h1>
+    <p>Questions about a product? Get in touch with Yoga Life directly.</p>
+  </section>
+
+  <section class="section-wrap contact-layout">
+    <div class="contact-copy">
+      <span class="eyebrow">CONNECT WITH YOGA LIFE</span>
+      <h2>Your wellness journey starts with a <em>conversation.</em></h2>
+      <p>Need product details, availability or help choosing the right essentials? Reach out using any of the contact options.</p>
+
+      <div class="contact-note">
+        <i class="fa-solid fa-circle-check"></i>
+        <span><strong>Personal assistance</strong><small>Discuss products directly with the store owner.</small></span>
+      </div>
+
+      <div class="contact-note">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span><strong>Simple ordering</strong><small>Choose products and send your order on WhatsApp.</small></span>
+      </div>
+    </div>
+
+    <div class="contact-cards">
+      <a class="contact-card whatsapp-card"
+        href="https://wa.me/919987475783"
+        target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon"><i class="fa-brands fa-whatsapp"></i></span>
+        <span class="contact-card-copy">
+          <strong>WhatsApp Us</strong>
+          <small>Ask questions or place an order</small>
+        </span>
+        <span class="click-label">CLICK NOW <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <!-- Replace with the owner's actual Instagram URL -->
+      <a class="contact-card instagram-card"
+        href="https://www.instagram.com/"
+        target="_blank" rel="noopener noreferrer">
+        <span class="contact-icon"><i class="fa-brands fa-instagram"></i></span>
+        <span class="contact-card-copy">
+          <strong>Instagram</strong>
+          <small>Visit our social profile</small>
+        </span>
+        <span class="click-label">CLICK NOW <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <a class="contact-card call-card" href="tel:+919987475783">
+        <span class="contact-icon"><i class="fa-solid fa-phone"></i></span>
+        <span class="contact-card-copy">
+          <strong>Call Us</strong>
+          <small>Speak directly with the owner</small>
+        </span>
+        <span class="click-label">CLICK NOW <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+
+      <!-- Replace with the owner's actual email -->
+      <a class="contact-card email-card"
+        href="mailto:?subject=Yoga%20Life%20Product%20Enquiry">
+        <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
+        <span class="contact-card-copy">
+          <strong>Email Us</strong>
+          <small>Send a product enquiry</small>
+        </span>
+        <span class="click-label">CLICK NOW <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section-wrap contact-bottom">
+    <div class="contact-bottom-inner">
+      <i class="fa-solid fa-spa"></i>
+      <h2>Need help choosing?</h2>
+      <p>Tell us what you're looking for. We'll help you explore your options.</p>
+      <button class="btn btn-primary"
+        onclick="openWhatsApp('Hello Yoga Life! I need help choosing yoga products.')">
+        <i class="fa-brands fa-whatsapp"></i> Chat With Us
+      </button>
+    </div>
+  </section>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-main">
+    <a href="#home" class="brand footer-brand"
+      onclick="showPage('home'); return false;">
+      <span class="brand-symbol"><i class="fa-solid fa-leaf"></i></span>
+      <span class="brand-name">YOGA <strong>LIFE</strong>
+        <small>LIVE WELL. MOVE WELL.</small>
+      </span>
+    </a>
+
+    <p>Mindful essentials for movement, rest and everyday wellness.</p>
+
+    <div class="footer-links">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('products')">Products</button>
+      <button onclick="showPage('contact')">Contact</button>
+    </div>
+
+    <a class="footer-social"
+      href="https://wa.me/919987475783"
+      target="_blank" rel="noopener noreferrer"
+      aria-label="Contact Yoga Life on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i> Connect with us
+    </a>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© <span id="currentYear">2026</span> Yoga Life. All rights reserved.</p>
+    <p>Move mindfully. Live fully.</p>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer"
+  aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-header">
+    <div>
+      <span class="eyebrow">YOUR SELECTION</span>
+      <h2>Your Cart <span id="cartTitleCount">(0)</span></h2>
+    </div>
+    <button class="icon-button" id="closeCart" aria-label="Close cart">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <h3>Your cart is waiting</h3>
+      <p>Add products you love to get started.</p>
+      <button class="btn btn-primary" id="continueShopping">Explore Products</button>
+    </div>
+  </div>
+
+  <div class="cart-summary">
+    <div class="cart-total">
+      <span>Estimated total</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+    <p class="cart-disclaimer">Final availability, delivery and pricing will be confirmed by the store owner.</p>
+    <button class="btn btn-whatsapp btn-full" id="checkoutWhatsApp">
+      <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+    </button>
+    <p class="secure-note"><i class="fa-solid fa-message"></i> No online payment. Send your order directly to the owner.</p>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+        </html>
+                          
