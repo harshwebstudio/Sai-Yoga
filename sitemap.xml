@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>YOUR_ACTUAL_HOMEPAGE_URL</loc>
+  </url>
+  <url>
+    <loc>YOUR_ACTUAL_PRODUCTS_PAGE_URL</loc>
+  </url>
+  <url>
+    <loc>YOUR_ACTUAL_ABOUT_PAGE_URL</loc>
+  </url>
+  <url>
+    <loc>YOUR_ACTUAL_CONTACT_PAGE_URL</loc>
+  </url>
+</urlset>
