@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d493b">
+  <meta name="description" content="Place your yoga product order with Sai Yoga Shop. Send your order details directly through WhatsApp.">
+  <title>Place an Order | Sai Yoga Shop</title>
+  <link rel="canonical" href="https://saiyogashop.com/order.html">
+
+  <style>
+    :root {
+      --green: #0d493b;
+      --light: #eaf4ee;
+      --text: #26372e;
+      --muted: #69766e;
+      --border: #dce6df;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #f7faf7;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1050px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+    }
+
+    .brand {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1.4px;
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: #16805d;
+    }
+
+    .hero {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 48px 0;
+    }
+
+    .hero .tag {
+      color: #c9e6d3;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 44px);
+      line-height: 1.2;
+      margin: 10px 0;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: #e0eee5;
+      font-size: 15px;
+    }
+
+    main {
+      padding: 38px 0 55px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 25px;
+      box-shadow: 0 8px 28px rgba(13, 73, 59, 0.04);
+    }
+
+    .card h2 {
+      color: var(--green);
+      font-size: 23px;
+      margin-bottom: 7px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d5e0d7;
+      border-radius: 10px;
+      background: white;
+      color: var(--text);
+      font: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--green);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .quantity-row {
+      display: grid;
+      grid-template-columns: 1fr 115px;
+      gap: 12px;
+    }
+
+    .btn {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-green {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-green:hover {
+      background: #17614e;
+    }
+
+    .btn-light {
+      background: var(--light);
+      color: var(--green);
+      margin-top: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .summary {
+      background: #f7faf7;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 17px;
+      margin: 20px 0;
+    }
+
+    .summary h3 {
+      color: var(--green);
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 14px;
+      padding: 7px 0;
+    }
+
+    .summary-line span:last-child {
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .summary-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .benefits {
+      display: grid;
+      gap: 13px;
+      margin-top: 18px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px;
+      border-radius: 11px;
+      background: var(--light);
+    }
+
+    .benefit strong {
+      display: block;
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    .benefit p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .notice {
+      background: #fff8e7;
+      border: 1px solid #f0e2b9;
+      border-radius: 10px;
+      padding: 13px;
+      font-size: 13px;
+      margin-top: 18px;
+    }
+
+    footer {
+      background: #092f27;
+      color: white;
+      text-align: center;
+      padding: 26px 0;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #d1e1d7;
+    }
+
+    footer strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px 16px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 40px 0;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .quantity-row {
+        grid-template-columns: 1fr 90px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        Sai Yoga Shop
+        <small>YOGA • WELLNESS • LIFESTYLE</small>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="order.html" aria-current="page">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="tag">Simple • Convenient • Direct</div>
+      <h1>Place Your Order</h1>
+      <p>
+        Choose your yoga products, enter your details
+        and send your order request directly to us on WhatsApp.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <div class="layout">
+
+        <section class="card">
+          <h2>Order Details</h2>
+          <p class="muted">
+            Fill in the required information below.
+          </p>
+
+          <form id="orderForm">
+
+            <div class="field">
+              <label for="customerName">Full Name *</label>
+              <input
+                id="customerName"
+                name="customerName"
+                type="text"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="customerPhone">Phone Number *</label>
+              <input
+                id="customerPhone"
+                name="customerPhone"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="Enter your phone number"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="customerAddress">Delivery Address *</label>
+              <textarea
+                id="customerAddress"
+                name="customerAddress"
+                autocomplete="street-address"
+                placeholder="House number, area, city, state and PIN code"
+                required
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label for="product">Select Product *</label>
+              <select id="product" name="product" required>
+                <option value="">Choose a product</option>
+                <option>Yoga Mat</option>
+                <option>Cork Yoga Mat</option>
+                <option>TPE Yoga Mat</option>
+                <option>Yoga Block</option>
+                <option>Yoga Belt</option>
+                <option>Yoga Wheel</option>
+                <option>Eye Pillow</option>
+                <option>Yoga Bolster</option>
+                <option>Meditation Cushion</option>
+                <option>Yoga Rope</option>
+                <option>Pelvic Swing</option>
+                <option>Tratak Stand</option>
+                <option>Neti Pot</option>
+                <option>Other Yoga Product</option>
+              </select>
+            </div>
+
+            <div class="quantity-row">
+              <div class="field">
+                <label for="variant">Colour / Size</label>
+                <input
+                  id="variant"
+                  name="variant"
+                  type="text"
+                  placeholder="If applicable"
+                >
+              </div>
+
+              <div class="field">
+                <label for="quantity">Quantity *</label>
+                <input
+                  id="quantity"
+                  name="quantity"
+                  type="number"
+                  min="1"
+                  max="10000"
+                  value="1"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="orderType">Order Type *</label>
+              <select id="orderType" name="orderType" required>
+                <option value="Retail Order">Retail Order</option>
+                <option value="Wholesale Enquiry">Wholesale Enquiry</option>
+                <option value="Bulk Order Enquiry">Bulk Order Enquiry</option>
+                <option value="Yoga Studio Order">Yoga Studio Order</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="notes">Additional Requirements</label>
+              <textarea
+                id="notes"
+                name="notes"
+                placeholder="Any other product details or requirements..."
+              ></textarea>
+            </div>
+
+            <div class="summary">
+              <h3>Order Summary</h3>
+              <div class="summary-line">
+                <span>Product</span>
+                <span id="summaryProduct">Not selected</span>
+              </div>
+              <div class="summary-line">
+                <span>Quantity</span>
+                <span id="summaryQuantity">1</span>
+              </div>
+              <div class="summary-line">
+                <span>Price</span>
+                <span>Confirm on WhatsApp</span>
+              </div>
+              <p class="summary-note">
+                Product prices, availability, delivery charges and
+                final order total will be confirmed by the shop.
+              </p>
+            </div>
+
+            <button type="submit" class="btn btn-green">
+              Send Order on WhatsApp →
+            </button>
+
+            <p class="summary-note">
+              Your order is a request until the shop confirms it.
+              No online payment is collected on this page.
+            </p>
+
+          </form>
+        </section>
+
+        <aside class="card">
+          <h2>Order with Confidence</h2>
+          <p class="muted">
+            Get product information before confirming your purchase.
+          </p>
+
+          <div class="benefits">
+            <div class="benefit">
+              <span>🧘</span>
+              <div>
+                <strong>Yoga & Wellness Products</strong>
+                <p>Explore mats, props and meditation accessories.</p>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <span>📦</span>
+              <div>
+                <strong>Bulk & Wholesale Enquiries</strong>
+                <p>Ask about larger quantities and applicable offers.</p>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <span>💬</span>
+              <div>
+                <strong>Direct WhatsApp Contact</strong>
+                <p>Review your order details before sending them.</p>
+              </div>
+            </div>
+
+            <div class="benefit">
+              <span>🚚</span>
+              <div>
+                <strong>Delivery Information</strong>
+                <p>Confirm delivery availability and charges before ordering.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice">
+            <strong>Important:</strong>
+            Sending an enquiry does not guarantee stock availability
+            or confirm an order. Wait for the shop's confirmation.
+          </div>
+
+          <a
+            class="btn btn-light"
+            href="https://wa.me/919987475783"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            💬 Contact Sai Yoga Shop
+          </a>
+
+          <a
+            class="btn btn-light"
+            href="products.html"
+          >
+            View Products →
+          </a>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Sai Yoga Shop</strong>
+      <p>Quality Yoga Products at Best Prices</p>
+      <p>Ambivali West, Kalyan, Thane 421102, India</p>
+      <p style="margin-top: 10px;">
+        © <span id="year"></span> Sai Yoga Shop. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    const productField = document.getElementById("product");
+    const quantityField = document.getElementById("quantity");
+
+    function updateSummary() {
+      document.getElementById("summaryProduct").textContent =
+        productField.value || "Not selected";
+
+      document.getElementById("summaryQuantity").textContent =
+        quantityField.value || "1";
+    }
+
+    productField.addEventListener("change", updateSummary);
+    quantityField.addEventListener("input", updateSummary);
+
+    document.getElementById("orderForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        const name =
+          document.getElementById("customerName").value.trim();
+
+        const phone =
+          document.getElementById("customerPhone").value.trim();
+
+        const address =
+          document.getElementById("customerAddress").value.trim();
+
+        const product = productField.value;
+        const quantity = Number(quantityField.value);
+
+        const variant =
+          document.getElementById("variant").value.trim();
+
+        const orderType =
+          document.getElementById("orderType").value;
+
+        const notes =
+          document.getElementById("notes").value.trim();
+
+        if (!name || !phone || !address || !product) {
+          alert("Please complete all required fields.");
+          return;
+        }
+
+        const phoneDigits = phone.replace(/\D/g, "");
+
+        if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+          alert("Please enter a valid phone number.");
+          return;
+        }
+
+        if (
+          !Number.isInteger(quantity) ||
+          quantity < 1 ||
+          quantity > 10000
+        ) {
+          alert("Please enter a valid quantity.");
+          return;
+        }
+
+        const orderMessage =
+          "Hello Sai Yoga Shop! I would like to place an order enquiry.\n\n" +
+          "CUSTOMER DETAILS\n" +
+          "Name: " + name + "\n" +
+          "Phone: " + phone + "\n" +
+          "Delivery Address: " + address + "\n\n" +
+          "ORDER DETAILS\n" +
+          "Product: " + product + "\n" +
+          "Colour / Size: " + (variant || "Not specified") + "\n" +
+          "Quantity: " + quantity + "\n" +
+          "Order Type: " + orderType + "\n" +
+          "Additional Requirements: " + (notes || "None") + "\n\n" +
+          "Please confirm the price, availability, delivery charges and final total. Thank you!";
+
+        const whatsappURL =
+          "https://wa.me/919987475783?text=" +
+          encodeURIComponent(orderMessage);
+
+        const openedWindow = window.open(
+          whatsappURL,
+          "_blank",
+          "noopener,noreferrer"
+        );
+
+        if (!openedWindow) {
+          window.location.href = whatsappURL;
+        }
+      }
+    );
+  </script>
+
+</body>
+</html>
