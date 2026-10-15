@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d493b">
+
+  <meta name="description" content="Contact Sai Yoga Shop for yoga mats, yoga props, meditation accessories, wholesale orders and product enquiries.">
+
+  <title>Contact Us | Sai Yoga Shop</title>
+
+  <link rel="canonical" href="https://saiyogashop.com/contact.html">
+
+  <style>
+    :root {
+      --green: #0d493b;
+      --green-light: #eaf4ee;
+      --accent: #c9e6d3;
+      --text: #24342d;
+      --muted: #68776f;
+      --white: #ffffff;
+      --border: #dce7df;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7faf7;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      padding: 15px 0;
+    }
+
+    .logo {
+      color: var(--green);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #16805d;
+    }
+
+    .hero {
+      background: var(--green);
+      color: var(--white);
+      padding: 58px 0 54px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #c9e6d3;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: #e0eee5;
+      font-size: 16px;
+    }
+
+    .main {
+      padding: 42px 0 60px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro h2 {
+      color: var(--green);
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 8px 28px rgba(13, 73, 59, 0.045);
+    }
+
+    .panel h2 {
+      color: var(--green);
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .panel-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      padding: 17px 0;
+      border-bottom: 1px solid #edf1ed;
+    }
+
+    .info-item:last-child {
+      border-bottom: 0;
+    }
+
+    .info-icon {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      border-radius: 12px;
+      font-size: 20px;
+    }
+
+    .info-item h3 {
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .info-item p,
+    .info-item a {
+      font-size: 14px;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .info-item a:hover {
+      color: var(--green);
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d5e0d7;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(13, 73, 59, 0.08);
+    }
+
+    textarea {
+      min-height: 115px;
+      resize: vertical;
+    }
+
+    .btn {
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 10px;
+      padding: 15px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #17614e;
+    }
+
+    .btn-whatsapp {
+      margin-top: 15px;
+      background: #e4f5e9;
+      color: #176b40;
+      border: 1px solid #c6e6d0;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .bottom-cta {
+      margin-top: 28px;
+      padding: 26px;
+      background: var(--green-light);
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .bottom-cta h2 {
+      color: var(--green);
+      font-size: 23px;
+      margin-bottom: 6px;
+    }
+
+    .bottom-cta p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .bottom-cta .btn {
+      max-width: 320px;
+      margin: auto;
+    }
+
+    footer {
+      background: #092f27;
+      color: #fff;
+      padding: 27px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #d1e1d7;
+    }
+
+    footer .footer-name {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 760px) {
+      .navbar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px 17px;
+      }
+
+      .hero {
+        padding: 44px 0;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 21px;
+      }
+
+      .main {
+        padding-top: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a href="index.html" class="logo">
+        Sai Yoga Shop
+        <span>Yoga • Wellness • Lifestyle</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">We Are Here to Help</div>
+      <h1>Contact Us</h1>
+      <p>
+        Looking for yoga products, bulk orders or product information?
+        Get in touch with Sai Yoga Shop.
+      </p>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="container">
+
+      <div class="intro">
+        <h2>Let's Connect</h2>
+        <p>Tell us what you need. Our team is ready to assist you.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <section class="panel">
+          <h2>Contact Information</h2>
+          <p class="panel-description">
+            Connect with us for retail, wholesale and bulk enquiries.
+          </p>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <h3>Visit Our Shop</h3>
+              <p>
+                Sai Yoga Shop<br>
+                Ambivali West, Kalyan,<br>
+                Thane, Maharashtra 421102, India
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Sai+Yoga+Shop+Ambivali+West+Kalyan+Thane+421102"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Get Directions →</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">💬</div>
+            <div>
+              <h3>WhatsApp Enquiries</h3>
+              <p>Product details, prices and bulk orders.</p>
+              <a
+                href="https://wa.me/919987475783"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Chat on WhatsApp →</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🧘</div>
+            <div>
+              <h3>What We Offer</h3>
+              <p>
+                Yoga mats, blocks, belts, wheels, bolsters,
+                meditation cushions and more.
+              </p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📦</div>
+            <div>
+              <h3>Bulk & Wholesale</h3>
+              <p>
+                Ask us about bulk purchases, yoga studio
+                requirements and available offers.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Send an Enquiry</h2>
+          <p class="panel-description">
+            Fill in the details below to continue on WhatsApp.
+          </p>
+
+          <form id="contactForm">
+
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+                autocomplete="tel"
+                inputmode="tel"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="enquiry">Enquiry Type *</label>
+              <select id="enquiry" name="enquiry" required>
+                <option value="">Select an enquiry</option>
+                <option>Product Price</option>
+                <option>Yoga Mats</option>
+                <option>Yoga Props & Accessories</option>
+                <option>Wholesale Order</option>
+                <option>Bulk Order</option>
+                <option>Yoga Studio Requirements</option>
+                <option>Delivery Information</option>
+                <option>Other Enquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us which products you need and the quantity..."
+                required
+              ></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              Send Enquiry on WhatsApp →
+            </button>
+
+            <p class="note">
+              Your enquiry will open in WhatsApp. Review the message
+              and press Send there to contact the shop.
+            </p>
+
+          </form>
+
+          <a
+            class="btn btn-whatsapp"
+            href="https://wa.me/919987475783"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            💬 Chat Directly on WhatsApp
+          </a>
+        </section>
+
+      </div>
+
+      <section class="bottom-cta">
+        <h2>Need Yoga Products in Bulk?</h2>
+        <p>
+          Contact us to discuss quantities, pricing and availability.
+        </p>
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/919987475783?text=Hello%20Sai%20Yoga%20Shop%2C%20I%20would%20like%20to%20enquire%20about%20bulk%20orders."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Enquire About Bulk Orders
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-name">Sai Yoga Shop</p>
+      <p>Quality Yoga Products at Best Prices</p>
+      <p>Ambivali West, Kalyan, Thane 421102</p>
+      <p style="margin-top: 12px;">
+        © <span id="year"></span> Sai Yoga Shop. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("contactForm").addEventListener(
+      "submit",
+      function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const enquiry = document.getElementById("enquiry").value;
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !phone || !enquiry || !message) {
+          alert("Please fill in all required fields.");
+          return;
+        }
+
+        const phoneDigits = phone.replace(/\D/g, "");
+
+        if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+          alert("Please enter a valid phone number.");
+          return;
+        }
+
+        const whatsappMessage =
+          "Hello Sai Yoga Shop!\n\n" +
+          "I would like to make an enquiry.\n\n" +
+          "Name: " + name + "\n" +
+          "My Phone: " + phone + "\n" +
+          "Enquiry Type: " + enquiry + "\n" +
+          "Message: " + message + "\n\n" +
+          "Please share the details. Thank you!";
+
+        const whatsappURL =
+          "https://wa.me/919987475783?text=" +
+          encodeURIComponent(whatsappMessage);
+
+        window.open(whatsappURL, "_blank", "noopener,noreferrer");
+      }
+    );
+  </script>
+
+</body>
+  </html>
