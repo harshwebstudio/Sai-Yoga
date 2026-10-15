@@ -1,39 +1,37 @@
 
 const products = [
-  { id: 1, name: "Cotton Bolster", price: 1199, category: "Bolsters" },
-  { id: 2, name: "Yoga Stick", price: 349, category: "Accessories" },
-  { id: 3, name: "Ceramic Neti Pot", price: 449, category: "Accessories" },
-  { id: 4, name: "Cork Yoga Block", price: 649, category: "Blocks" },
-  { id: 5, name: "Cotton Yoga Belt", price: 179, category: "Belts" },
-  { id: 6, name: "Adjustable Trataka Stand", price: 649, category: "Accessories" },
-  { id: 7, name: "Sai Combo Kit 2", price: 1799, category: "Combo Kits" },
-  { id: 8, name: "Sand Bag", price: 449, category: "Accessories" },
-  { id: 9, name: "Foam Block", price: 249, category: "Blocks" },
-  { id: 10, name: "Trataka Stand", price: 449, category: "Accessories" },
-  { id: 11, name: "Sai Combo Kit 3", price: 2199, category: "Combo Kits" },
-  { id: 12, name: "Buckwheat Bolster", price: 1499, category: "Bolsters" },
-  { id: 13, name: "Cork Travel Mat", price: 2199, category: "Mats" },
-  { id: 14, name: "Cotton Yoga Rope", price: 849, category: "Ropes" },
-  { id: 15, name: "Yoga Pelvic Swing", price: 2799, category: "Ropes" },
-  { id: 16, name: "Ice Bath Tube", price: 4499, category: "Accessories" },
-
-  
-  { id: 17, name: "Combo Kit 4", price: 2799, category: "Combo Kits" },
-  { id: 18, name: "Yoga Rope Hook and Bolt", price: 349, category: "Ropes" },
-  { id: 19, name: "Yoga Chair", price: 1199, category: "Accessories" },
-  { id: 20, name: "Cork Yoga Wheel", price: 1799, category: "Accessories" },
-  { id: 21, name: "TPE Yoga Mat", price: 699, category: "Mats" },
-  { id: 22, name: "Cotton Yoga Blanket", price: 899, category: "Accessories" },
-  { id: 23, name: "Cotton Yoga Belt 9 ft", price: 199, category: "Belts" },
-  { id: 24, name: "Cotton Yoga Mat 6 mm Thick", price: 849, category: "Mats" },
-  { id: 25, name: "Combo Kit", price: 1599, category: "Combo Kits" },
-  { id: 26, name: "Yoga Foam Roller", price: 499, category: "Accessories" },
-  { id: 27, name: "Meditation Cushion", price: 649, category: "Bolsters" },
-  { id: 28, name: "Cork Mat 5 mm Thick", price: 2799, category: "Mats" },
-  { id: 29, name: "Yoga Eye Pillow", price: 249, category: "Accessories" },
-  { id: 30, name: "Cork Rubber Mat", price: 3199, category: "Mats" },
-  { id: 31, name: "Yoga Cork Block", price: 649, category: "Blocks" },
-  { id: 32, name: "Yoga Belt 11 ft", price: 249, category: "Belts" }
+  { id: 1, name: "Yoga Belt 11 ft", price: 249, category: "Belts", image: "product-01.jpg" },
+  { id: 2, name: "Yoga Cork Block", price: 649, category: "Blocks", image: "product-02.jpg" },
+  { id: 3, name: "Cork Rubber Mat", price: 3199, category: "Mats", image: "product-03.jpg" },
+  { id: 4, name: "Yoga Eye Pillow", price: 249, category: "Accessories", image: "product-04.jpg" },
+  { id: 5, name: "Cork Mat 5 mm Thick", price: 2799, category: "Mats", image: "product-05.jpg" },
+  { id: 6, name: "Meditation Cushion", price: 649, category: "Bolsters", image: "product-06.jpg" },
+  { id: 7, name: "Yoga Foam Roller", price: 499, category: "Accessories", image: "product-07.jpg" },
+  { id: 8, name: "Combo Kit", price: 1599, category: "Combo Kits", image: "product-08.jpg" },
+  { id: 9, name: "Cotton Yoga Mat 6 mm Thick", price: 849, category: "Mats", image: "product-09.jpg" },
+  { id: 10, name: "Cotton Yoga Belt 9 ft", price: 199, category: "Belts", image: "product-10.jpg" },
+  { id: 11, name: "Cotton Yoga Blanket", price: 899, category: "Accessories", image: "product-11.jpg" },
+  { id: 12, name: "TPE Yoga Mat", price: 699, category: "Mats", image: "product-12.jpg" },
+  { id: 13, name: "Cork Yoga Wheel", price: 1799, category: "Accessories", image: "product-13.jpg" },
+  { id: 14, name: "Yoga Chair", price: 1199, category: "Accessories", image: "product-14.jpg" },
+  { id: 15, name: "Yoga Rope Hook and Bolt", price: 349, category: "Ropes", image: "product-15.jpg" },
+  { id: 16, name: "Combo Kit 4", price: 2799, category: "Combo Kits", image: "product-16.jpg" },
+  { id: 17, name: "Ice Bath Tube", price: 4499, category: "Accessories", image: "product-17.jpg" },
+  { id: 18, name: "Yoga Pelvic Swing", price: 2799, category: "Ropes", image: "product-18.jpg" },
+  { id: 19, name: "Cotton Yoga Rope", price: 849, category: "Ropes", image: "product-19.jpg" },
+  { id: 20, name: "Cork Travel Mat", price: 2199, category: "Mats", image: "product-20.jpg" },
+  { id: 21, name: "Buckwheat Bolster", price: 1499, category: "Bolsters", image: "product-21.jpg" },
+  { id: 22, name: "Sai Combo Kit 3", price: 2199, category: "Combo Kits", image: "product-22.jpg" },
+  { id: 23, name: "Trataka Stand", price: 449, category: "Accessories", image: "product-23.jpg" },
+  { id: 24, name: "Foam Block", price: 249, category: "Blocks", image: "product-24.jpg" },
+  { id: 25, name: "Sand Bag", price: 449, category: "Accessories", image: "product-25.jpg" },
+  { id: 26, name: "Sai Combo Kit 2", price: 1799, category: "Combo Kits", image: "product-26.jpg" },
+  { id: 27, name: "Adjustable Trataka Stand", price: 649, category: "Accessories", image: "product-27.jpg" },
+  { id: 28, name: "Cotton Yoga Belt", price: 179, category: "Belts", image: "product-28.jpg" },
+  { id: 29, name: "Cork Yoga Block", price: 649, category: "Blocks", image: "product-29.jpg" },
+  { id: 30, name: "Ceramic Neti Pot", price: 449, category: "Accessories", image: "product-30.jpg" },
+  { id: 31, name: "Yoga Stick", price: 349, category: "Accessories", image: "product-31.jpg" },
+  { id: 32, name: "Cotton Bolster", price: 1199, category: "Bolsters", image: "product-32.jpg" }
 ];
 
 const cart = {};
@@ -44,8 +42,7 @@ const money = (n) => "₹" + n.toLocaleString("en-IN");
 let activeCategory = "All";
 
 function imagePath(product) {
-  return "product/product-" +
-    String(product.id).padStart(2, "0") + ".jpg";
+  return "images/products/" + product.image;
 }
 
 function renderCategories() {
@@ -81,6 +78,7 @@ function renderProducts() {
     const matchesSearch = product.name.toLowerCase().includes(query);
     const matchesCategory =
       activeCategory === "All" || product.category === activeCategory;
+
     return matchesSearch && matchesCategory;
   });
 
@@ -98,7 +96,7 @@ function renderProducts() {
           src="${imagePath(product)}"
           alt="${product.name}"
           loading="lazy"
-          onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22240%22 viewBox=%220 0 300 240%22%3E%3Crect width=%22300%22 height=%22240%22 fill=%22%23e7eee7%22/%3E%3Ctext x=%22150%22 y=%22120%22 text-anchor=%22middle%22 fill=%22%23174b3e%22 font-size=%2216%22%3EProduct image%3C/text%3E%3C/svg%3E';">
+          onerror="this.onerror=null;this.alt='Image unavailable: ${product.name}';">
       </div>
       <div class="product-info">
         <span class="product-category">${product.category}</span>
@@ -111,10 +109,14 @@ function renderProducts() {
   `).join("");
 
   const noResults = $("noResults");
-  if (noResults) noResults.classList.toggle("hidden", filtered.length > 0);
+  if (noResults) {
+    noResults.classList.toggle("hidden", filtered.length > 0);
+  }
 
   grid.querySelectorAll("[data-add]").forEach(button => {
-    button.addEventListener("click", () => addToCart(Number(button.dataset.add)));
+    button.addEventListener("click", () => {
+      addToCart(Number(button.dataset.add));
+    });
   });
 }
 
@@ -132,7 +134,9 @@ function changeQuantity(id, amount) {
 
 function renderCart() {
   const items = products.filter(product => cart[product.id]);
-  const count = items.reduce((sum, product) => sum + cart[product.id], 0);
+  const count = items.reduce(
+    (sum, product) => sum + cart[product.id], 0
+  );
   const subtotal = items.reduce(
     (sum, product) => sum + product.price * cart[product.id], 0
   );
@@ -141,11 +145,19 @@ function renderCart() {
     if ($(id)) $(id).textContent = count;
   });
 
-  if ($("drawerCartCount")) $("drawerCartCount").textContent = `(${count})`;
-  if ($("cartSubtotal")) $("cartSubtotal").textContent = money(subtotal);
+  if ($("drawerCartCount")) {
+    $("drawerCartCount").textContent = `(${count})`;
+  }
+  if ($("cartSubtotal")) {
+    $("cartSubtotal").textContent = money(subtotal);
+  }
 
-  if ($("cartEmpty")) $("cartEmpty").style.display = count ? "none" : "block";
-  if ($("cartSummary")) $("cartSummary").style.display = count ? "block" : "none";
+  if ($("cartEmpty")) {
+    $("cartEmpty").style.display = count ? "none" : "block";
+  }
+  if ($("cartSummary")) {
+    $("cartSummary").style.display = count ? "block" : "none";
+  }
 
   if ($("cartItems")) {
     $("cartItems").innerHTML = items.map(product => `
@@ -176,7 +188,8 @@ function renderCart() {
       });
     });
   }
-}
+   }
+
 
 function openCart() {
   $("cartDrawer")?.classList.add("open");
@@ -193,6 +206,7 @@ function closeCart() {
 function showToast(message) {
   const toast = $("toast");
   if (!toast) return;
+
   toast.textContent = message;
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 2200);
@@ -200,6 +214,7 @@ function showToast(message) {
 
 function checkoutWhatsApp(number) {
   const items = products.filter(product => cart[product.id]);
+
   if (!items.length) {
     showToast("Please add a product first");
     return;
@@ -207,6 +222,7 @@ function checkoutWhatsApp(number) {
 
   const name = $("customerName")?.value.trim() || "Not provided";
   const notes = $("orderNotes")?.value.trim() || "None";
+
   const subtotal = items.reduce(
     (sum, product) => sum + product.price * cart[product.id], 0
   );
@@ -238,22 +254,24 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProducts();
   renderCart();
 
-  if ($("year")) $("year").textContent = new Date().getFullYear();
+  if ($("year")) {
+    $("year").textContent = new Date().getFullYear();
+  }
 
   $("productSearch")?.addEventListener("input", renderProducts);
   $("sortProducts")?.addEventListener("change", renderProducts);
 
-  ["openCartNav", "openCartTop"].forEach(id =>
-    $(id)?.addEventListener("click", openCart)
-  );
+  ["openCartNav", "openCartTop"].forEach(id => {
+    $(id)?.addEventListener("click", openCart);
+  });
 
   $("closeCart")?.addEventListener("click", closeCart);
   $("cartOverlay")?.addEventListener("click", closeCart);
   $("continueShopping")?.addEventListener("click", closeCart);
 
-  $("checkoutWhatsApp")?.addEventListener("click", () =>
-    checkoutWhatsApp("918169767623")
-  );
+  $("checkoutWhatsApp")?.addEventListener("click", () => {
+    checkoutWhatsApp("918169767623");
+  });
 
   $("whatsappSecond")?.addEventListener("click", event => {
     event.preventDefault();
@@ -263,8 +281,8 @@ document.addEventListener("DOMContentLoaded", () => {
   $("menuToggle")?.addEventListener("click", () => {
     const nav = $("mainNav");
     if (!nav) return;
+
     const isOpen = nav.classList.toggle("open");
     $("menuToggle").setAttribute("aria-expanded", String(isOpen));
   });
 });
-  
