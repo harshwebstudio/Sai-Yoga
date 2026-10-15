@@ -1,17 +1,24 @@
 
-/* =====================================================
-   YOGA LIFE — COMPLETE WEBSITE JAVASCRIPT
-   PART 1 OF 2
-===================================================== */
+/* =========================================================
+   SAI YOGA SHOP — COMPLETE WEBSITE JAVASCRIPT
+   PART 1/3: SETTINGS, 32 PRODUCTS, HELPERS, NAVIGATION
+========================================================= */
 
 "use strict";
 
-const WHATSAPP_NUMBER = "919987475783";
+/* OWNER WHATSAPP */
+const WHATSAPP_NUMBER = "918169767623";
+const CART_STORAGE_KEY = "saiYogaShopCart";
 
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80";
 
-/* -------------------- PRODUCT CATALOGUE -------------------- */
+/*
+  Add actual product images in:
+  images/products/product-01.jpg
+  ...
+  images/products/product-32.jpg
+*/
 
 const products = [
   {
@@ -19,8 +26,7 @@ const products = [
     name: "Premium Yoga Mat",
     category: "Yoga Mats",
     price: 899,
-    description: "A comfortable, non-slip yoga mat for everyday yoga and stretching.",
-    image: "https://images.unsplash.com/photo-1592432678016-e910b452f9a2?auto=format&fit=crop&w=900&q=80",
+    description: "A comfortable non-slip mat for daily yoga and stretching.",
     tag: "Bestseller"
   },
   {
@@ -28,8 +34,7 @@ const products = [
     name: "Eco-Friendly Yoga Mat",
     category: "Yoga Mats",
     price: 1299,
-    description: "A versatile yoga mat for a comfortable and mindful practice.",
-    image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=900&q=80",
+    description: "A versatile yoga mat for a mindful everyday practice.",
     tag: "Eco Choice"
   },
   {
@@ -37,8 +42,7 @@ const products = [
     name: "Travel Yoga Mat",
     category: "Yoga Mats",
     price: 749,
-    description: "A lightweight mat for home, outdoor and travel yoga sessions.",
-    image: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=900&q=80",
+    description: "A lightweight mat for home, studio and travel sessions.",
     tag: "Lightweight"
   },
   {
@@ -46,169 +50,260 @@ const products = [
     name: "Extra Grip Yoga Mat",
     category: "Yoga Mats",
     price: 1499,
-    description: "A supportive mat designed to help with stability during practice.",
-    image: "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&w=900&q=80",
+    description: "A supportive mat designed for stability during practice.",
     tag: "Premium"
   },
   {
     id: 5,
-    name: "Yoga Block Set",
-    category: "Accessories",
-    price: 499,
-    description: "Support alignment and make selected yoga poses more accessible.",
-    image: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=900&q=80",
-    tag: "Essential"
+    name: "TPE Yoga Mat",
+    category: "Yoga Mats",
+    price: 1199,
+    description: "A practical yoga mat for regular home workouts.",
+    tag: "Popular"
   },
   {
     id: 6,
-    name: "Stretching Strap",
+    name: "Cork Yoga Mat",
+    category: "Yoga Mats",
+    price: 1899,
+    description: "A cork-style mat option for a natural-looking practice space.",
+    tag: "Natural Style"
+  },
+
+  {
+    id: 7,
+    name: "Yoga Block Set",
+    category: "Accessories",
+    price: 499,
+    description: "Yoga blocks to help support alignment and selected poses.",
+    tag: "Essential"
+  },
+  {
+    id: 8,
+    name: "Yoga Stretching Belt",
     category: "Accessories",
     price: 299,
-    description: "A useful accessory for stretching and flexibility exercises.",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
+    description: "A useful strap for stretching and supported yoga movements.",
     tag: "Everyday"
   },
   {
-    id: 7,
+    id: 9,
     name: "Yoga Mat Carry Bag",
     category: "Accessories",
     price: 399,
     description: "Carry your yoga mat conveniently between home and studio.",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=80",
     tag: "Convenient"
   },
   {
-    id: 8,
-    name: "Resistance Bands",
-    category: "Accessories",
-    price: 449,
-    description: "A versatile set for mobility exercises and fitness routines.",
-    image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?auto=format&fit=crop&w=900&q=80",
-    tag: "Workout"
-  },
-  {
-    id: 9,
-    name: "Meditation Cushion",
-    category: "Meditation",
-    price: 999,
-    description: "A supportive cushion for comfortable seated meditation.",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=900&q=80",
-    tag: "Mindfulness"
-  },
-  {
     id: 10,
-    name: "Meditation Mat",
-    category: "Meditation",
-    price: 1199,
-    description: "Create a dedicated, comfortable space for meditation.",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
-    tag: "Calm Living"
-  },
-  {
-    id: 11,
-    name: "Relaxation Eye Pillow",
-    category: "Meditation",
-    price: 349,
-    description: "A soft eye pillow to complement your relaxation routine.",
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=900&q=80",
-    tag: "Relax"
-  },
-  {
-    id: 12,
-    name: "Mindfulness Journal",
-    category: "Meditation",
-    price: 299,
-    description: "A journal for reflections, intentions and daily gratitude.",
-    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=900&q=80",
-    tag: "Daily Ritual"
-  },
-  {
-    id: 13,
-    name: "Comfort Yoga Leggings",
-    category: "Clothing",
-    price: 999,
-    description: "Comfortable activewear designed for movement and everyday wear.",
-    image: "https://images.unsplash.com/photo-1506629905607-d9c297d2e4c4?auto=format&fit=crop&w=900&q=80",
-    tag: "Comfort"
-  },
-  {
-    id: 14,
-    name: "Yoga Training Top",
-    category: "Clothing",
-    price: 699,
-    description: "A versatile training top for yoga and stretching.",
-    image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=900&q=80",
-    tag: "Everyday"
-  },
-  {
-    id: 15,
-    name: "Relaxed Fit T-Shirt",
-    category: "Clothing",
-    price: 549,
-    description: "A relaxed T-shirt suitable for warm-ups and casual wear.",
-    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=80",
-    tag: "Casual"
-  },
-  {
-    id: 16,
-    name: "Activewear Shorts",
-    category: "Clothing",
-    price: 599,
-    description: "Lightweight shorts for movement and general fitness.",
-    image: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=80",
-    tag: "Active"
-  },
-  {
-    id: 17,
     name: "Yoga Wheel",
     category: "Fitness",
     price: 899,
     description: "A yoga accessory for supported stretching and balance practice.",
-    image: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&w=900&q=80",
     tag: "Practice"
   },
   {
+    id: 11,
+    name: "Yoga Bolster",
+    category: "Accessories",
+    price: 1299,
+    description: "A supportive bolster for restorative yoga and relaxation.",
+    tag: "Comfort"
+  },
+  {
+    id: 12,
+    name: "Meditation Cushion",
+    category: "Meditation",
+    price: 999,
+    description: "A supportive cushion for comfortable seated meditation.",
+    tag: "Mindfulness"
+  },
+  {
+    id: 13,
+    name: "Meditation Mat",
+    category: "Meditation",
+    price: 1199,
+    description: "Create a dedicated and comfortable meditation space.",
+    tag: "Calm Living"
+  },
+  {
+    id: 14,
+    name: "Relaxation Eye Pillow",
+    category: "Meditation",
+    price: 349,
+    description: "A soft eye pillow to complement your relaxation routine.",
+    tag: "Relax"
+  },
+  {
+    id: 15,
+    name: "Mindfulness Journal",
+    category: "Meditation",
+    price: 299,
+    description: "A journal for daily reflections, intentions and gratitude.",
+    tag: "Daily Ritual"
+  },
+  {
+    id: 16,
+    name: "Meditation Floor Cushion",
+    category: "Meditation",
+    price: 799,
+    description: "A floor cushion for a dedicated meditation corner.",
+    tag: "Peaceful Space"
+  },
+
+  {
+    id: 17,
+    name: "Comfort Yoga Leggings",
+    category: "Clothing",
+    price: 999,
+    description: "Comfortable activewear for movement and everyday wear.",
+    tag: "Comfort"
+  },
+  {
     id: 18,
-    name: "Foam Roller",
-    category: "Fitness",
+    name: "Yoga Training Top",
+    category: "Clothing",
     price: 699,
-    description: "A fitness accessory for gentle self-massage and mobility routines.",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
-    tag: "Recovery"
+    description: "A versatile training top for yoga and stretching.",
+    tag: "Everyday"
   },
   {
     id: 19,
+    name: "Relaxed Fit T-Shirt",
+    category: "Clothing",
+    price: 549,
+    description: "A relaxed T-shirt suitable for warm-ups and casual wear.",
+    tag: "Casual"
+  },
+  {
+    id: 20,
+    name: "Activewear Shorts",
+    category: "Clothing",
+    price: 599,
+    description: "Lightweight shorts for movement and general fitness.",
+    tag: "Active"
+  },
+
+  {
+    id: 21,
+    name: "Foam Roller",
+    category: "Fitness",
+    price: 699,
+    description: "A fitness accessory for mobility and recovery routines.",
+    tag: "Recovery"
+  },
+  {
+    id: 22,
+    name: "Resistance Bands Set",
+    category: "Fitness",
+    price: 449,
+    description: "A versatile set for mobility and fitness exercises.",
+    tag: "Workout"
+  },
+  {
+    id: 23,
     name: "Balance Cushion",
     category: "Fitness",
     price: 799,
     description: "Add variety to suitable balance and stability exercises.",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80",
     tag: "Balance"
   },
   {
-    id: 20,
-    name: "Fitness Exercise Ball",
+    id: 24,
+    name: "Exercise Ball",
     category: "Fitness",
     price: 1099,
     description: "A versatile ball for selected mobility and fitness activities.",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
     tag: "Fitness"
+  },
+
+  {
+    id: 25,
+    name: "Yoga Rope Set",
+    category: "Accessories",
+    price: 599,
+    description: "Yoga ropes for selected supported stretching practices.",
+    tag: "Studio Essential"
+  },
+  {
+    id: 26,
+    name: "Yoga Eye Pillow",
+    category: "Meditation",
+    price: 349,
+    description: "A soft accessory for relaxation and quiet moments.",
+    tag: "Relaxation"
+  },
+  {
+    id: 27,
+    name: "Tratak Meditation Stand",
+    category: "Meditation",
+    price: 499,
+    description: "A meditation accessory for a dedicated practice area.",
+    tag: "Meditation"
+  },
+  {
+    id: 28,
+    name: "Neti Pot",
+    category: "Accessories",
+    price: 399,
+    description: "A traditional wellness accessory; follow safe-use guidance.",
+    tag: "Wellness"
+  },
+  {
+    id: 29,
+    name: "Yoga Knee Support Pair",
+    category: "Accessories",
+    price: 499,
+    description: "Padded supports for additional comfort during floor exercises.",
+    tag: "Comfort"
+  },
+  {
+    id: 30,
+    name: "Cork Yoga Block",
+    category: "Accessories",
+    price: 399,
+    description: "A single cork-style block for support during yoga practice.",
+    tag: "Natural Style"
+  },
+  {
+    id: 31,
+    name: "Yoga Strap and Block Kit",
+    category: "Accessories",
+    price: 699,
+    description: "A convenient combination of two common yoga accessories.",
+    tag: "Value Set"
+  },
+  {
+    id: 32,
+    name: "Meditation Starter Kit",
+    category: "Meditation",
+    price: 1499,
+    description: "A sample meditation kit for creating a dedicated quiet space.",
+    tag: "Starter Kit"
   }
 ];
 
-/* -------------------- CART STATE -------------------- */
+/* Add a local image path to every product. */
+products.forEach(function (product) {
+  const number = String(product.id).padStart(2, "0");
+  product.image = "images/products/product-" + number + ".jpg";
+});
+
+/* -------------------- STATE -------------------- */
 
 let cart = {};
 let activeCategory = "All Products";
 let searchTerm = "";
 
+/* Restore cart safely. */
 try {
-  const savedCart = localStorage.getItem("yogaLifeCart");
+  const savedCart = localStorage.getItem(CART_STORAGE_KEY);
 
   if (savedCart) {
     const parsedCart = JSON.parse(savedCart);
 
-    if (parsedCart && typeof parsedCart === "object") {
+    if (parsedCart && typeof parsedCart === "object" &&
+        !Array.isArray(parsedCart)) {
       cart = parsedCart;
     }
   }
@@ -216,7 +311,7 @@ try {
   cart = {};
 }
 
-/* -------------------- COMMON HELPERS -------------------- */
+/* -------------------- HELPERS -------------------- */
 
 function formatPrice(amount) {
   return "₹" + Number(amount).toLocaleString("en-IN");
@@ -230,9 +325,9 @@ function getProduct(id) {
 
 function saveCart() {
   try {
-    localStorage.setItem("yogaLifeCart", JSON.stringify(cart));
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
   } catch (error) {
-    console.warn("Cart could not be saved.");
+    console.warn("Cart could not be saved in this browser.");
   }
 }
 
@@ -251,18 +346,24 @@ function escapeHTML(value) {
 }
 
 function openWhatsApp(message) {
-  const text = encodeURIComponent(
-    message || "Hello Yoga Life! I would like to know more about your products."
-  );
+  const defaultMessage =
+    "Hello Sai Yoga Shop! I would like to know more about your products.";
 
-  window.open(
-    "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text,
+  const text = encodeURIComponent(message || defaultMessage);
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text;
+
+  const openedWindow = window.open(
+    url,
     "_blank",
     "noopener,noreferrer"
   );
+
+  if (!openedWindow) {
+    window.location.href = url;
+  }
 }
 
-/* -------------------- TOAST NOTIFICATION -------------------- */
+/* -------------------- TOAST -------------------- */
 
 function showToast(message) {
   let toast = document.getElementById("toast");
@@ -275,11 +376,12 @@ function showToast(message) {
   }
 
   toast.textContent = message;
+
   toast.style.cssText =
     "position:fixed;bottom:24px;left:50%;transform:translateX(-50%);" +
-    "z-index:10000;background:#243d32;color:#fff;padding:13px 20px;" +
+    "z-index:15000;background:#244734;color:#fff;padding:13px 20px;" +
     "border-radius:12px;max-width:90%;text-align:center;" +
-    "box-shadow:0 8px 28px rgba(0,0,0,.18);display:block;";
+    "box-shadow:0 8px 28px rgba(0,0,0,.18);";
 
   clearTimeout(toast.hideTimer);
 
@@ -288,7 +390,7 @@ function showToast(message) {
   }, 2800);
 }
 
-/* -------------------- PAGE NAVIGATION -------------------- */
+/* -------------------- NAVIGATION -------------------- */
 
 function showPage(pageName) {
   const pages = {
@@ -297,9 +399,7 @@ function showPage(pageName) {
     contact: document.getElementById("contactPage")
   };
 
-  if (!pages[pageName]) {
-    pageName = "home";
-  }
+  if (!pages[pageName]) pageName = "home";
 
   Object.keys(pages).forEach(function (name) {
     if (pages[name]) {
@@ -314,11 +414,11 @@ function showPage(pageName) {
   });
 
   document.querySelectorAll("[data-page]").forEach(function (link) {
-    const isActive = link.getAttribute("data-page") === pageName;
+    const active = link.getAttribute("data-page") === pageName;
 
-    link.classList.toggle("active", isActive);
+    link.classList.toggle("active", active);
 
-    if (isActive) {
+    if (active) {
       link.setAttribute("aria-current", "page");
     } else {
       link.removeAttribute("aria-current");
@@ -326,34 +426,27 @@ function showPage(pageName) {
   });
 
   const nav = document.getElementById("mainNav");
-  const menuToggle = document.getElementById("menuToggle");
+  const toggle = document.getElementById("menuToggle");
 
   if (nav) nav.classList.remove("open");
 
-  if (menuToggle) {
-    menuToggle.setAttribute("aria-expanded", "false");
-  }
+  if (toggle) toggle.setAttribute("aria-expanded", "false");
 
   window.scrollTo({ top: 0, behavior: "auto" });
 
-  if (pageName === "products") {
-    renderProducts();
-  }
+  if (pageName === "products") renderProducts();
 
   return false;
 }
 
-/* -------------------- MOBILE NAVIGATION -------------------- */
-
 function setupNavigation() {
-  const menuToggle = document.getElementById("menuToggle");
-  const mainNav = document.getElementById("mainNav");
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("mainNav");
 
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", function () {
-      const isOpen = mainNav.classList.toggle("open");
-
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      const open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
     });
   }
 
@@ -365,7 +458,22 @@ function setupNavigation() {
   });
 }
 
-/* -------------------- PRODUCT CARDS -------------------- */
+/* -------------------- IMAGE FALLBACK -------------------- */
+
+function setupImageFallbacks(container) {
+  if (!container) return;
+
+  container.querySelectorAll("img[data-product-image]").forEach(function (img) {
+    img.addEventListener("error", function () {
+      if (img.dataset.fallbackUsed === "true") return;
+
+      img.dataset.fallbackUsed = "true";
+      img.src = FALLBACK_IMAGE;
+    });
+  });
+}
+
+/* -------------------- PRODUCT CARD -------------------- */
 
 function createProductCard(product) {
   return `
@@ -391,78 +499,65 @@ function createProductCard(product) {
         <div class="product-price">${formatPrice(product.price)}</div>
 
         <div class="product-actions">
-          <button
-            type="button"
-            class="btn btn-outline"
-            onclick="viewProduct(${product.id})"
-          >View Product</button>
+          <button type="button" class="btn btn-outline"
+            onclick="viewProduct(${product.id})">
+            View Product
+          </button>
 
-          <button
-            type="button"
-            class="btn btn-primary"
-            onclick="addToCart(${product.id})"
-          >Add to Cart</button>
+          <button type="button" class="btn btn-primary"
+            onclick="addToCart(${product.id})">
+            Add to Cart
+          </button>
         </div>
       </div>
     </article>
   `;
 }
 
-function setupImageFallbacks(container) {
-  if (!container) return;
-
-  container.querySelectorAll("img[data-product-image]").forEach(function (img) {
-    img.addEventListener("error", function () {
-      img.src = FALLBACK_IMAGE;
-    }, { once: true });
-  });
-}
-
-/* -------------------- PRODUCT RENDERING -------------------- */
+/* -------------------- PRODUCT DISPLAY -------------------- */
 
 function renderProducts() {
-  const productGrid = document.getElementById("allProducts");
+  const grid = document.getElementById("allProducts");
   const emptyState = document.getElementById("emptyProducts");
 
-  if (!productGrid) return;
+  if (!grid) return;
 
-  const filteredProducts = products.filter(function (product) {
-    const matchesCategory =
+  const filtered = products.filter(function (product) {
+    const categoryMatches =
       activeCategory === "All Products" ||
       product.category === activeCategory;
 
-    const text = (
+    const searchableText = (
       product.name + " " +
       product.category + " " +
-      product.description
+      product.description + " " +
+      product.tag
     ).toLowerCase();
 
-    return matchesCategory && text.includes(searchTerm.toLowerCase());
+    return categoryMatches &&
+      searchableText.includes(searchTerm.toLowerCase());
   });
 
-  productGrid.innerHTML = filteredProducts.map(createProductCard).join("");
-
-  setupImageFallbacks(productGrid);
+  grid.innerHTML = filtered.map(createProductCard).join("");
+  setupImageFallbacks(grid);
 
   if (emptyState) {
-    emptyState.style.display =
-      filteredProducts.length ? "none" : "block";
+    emptyState.style.display = filtered.length ? "none" : "block";
   }
 
   updateFilterButtons();
 }
 
 function renderFeaturedProducts() {
-  const featuredGrid =
+  const grid =
     document.getElementById("featuredProducts") ||
     document.getElementById("featuredGrid") ||
     document.getElementById("featuredProductGrid");
 
-  if (!featuredGrid) return;
+  if (!grid) return;
 
-  featuredGrid.innerHTML = products.slice(0, 4).map(createProductCard).join("");
-
-  setupImageFallbacks(featuredGrid);
+  grid.innerHTML = products.slice(0, 4).map(createProductCard).join("");
+  setupImageFallbacks(grid);
 }
 
 /* -------------------- FILTERS AND SEARCH -------------------- */
@@ -472,7 +567,6 @@ function filterProducts(category) {
   searchTerm = "";
 
   const input = document.getElementById("productSearch");
-
   if (input) input.value = "";
 
   showPage("products");
@@ -486,7 +580,6 @@ function resetProductFilters() {
   searchTerm = "";
 
   const input = document.getElementById("productSearch");
-
   if (input) input.value = "";
 
   renderProducts();
@@ -501,20 +594,10 @@ function updateFilterButtons() {
   });
 
   document.querySelectorAll(".filter-btn").forEach(function (button) {
-    const label = button.textContent.trim();
-
-    const validCategories = [
-      "All Products",
-      "Yoga Mats",
-      "Accessories",
-      "Meditation",
-      "Clothing",
-      "Fitness"
-    ];
-
-    if (validCategories.includes(label)) {
-      button.classList.toggle("active", label === activeCategory);
-    }
+    button.classList.toggle(
+      "active",
+      button.textContent.trim() === activeCategory
+    );
   });
 }
 
@@ -534,7 +617,11 @@ function setupProductSearch() {
       renderProducts();
     });
   });
-}
+     }
+     
+/* =========================================================
+   PART 2/3: PRODUCT MODAL + CART OPERATIONS
+========================================================= */
 
 /* -------------------- PRODUCT MODAL STYLES -------------------- */
 
@@ -546,117 +633,133 @@ function ensureProductModalStyles() {
 
   style.textContent = `
     .yl-modal-backdrop {
-      position:fixed;
-      inset:0;
-      z-index:12000;
-      background:rgba(15,25,20,.68);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:18px;
+      position: fixed;
+      inset: 0;
+      z-index: 12000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(20, 40, 27, .68);
     }
 
     .yl-modal {
-      width:min(680px,100%);
-      max-height:90vh;
-      overflow-y:auto;
-      background:#fffdf7;
-      color:#263b30;
-      border-radius:20px;
-      position:relative;
-      padding:22px;
-      box-shadow:0 20px 70px rgba(0,0,0,.25);
+      position: relative;
+      width: min(680px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 22px;
+      border: 1px solid #e3e7dc;
+      border-radius: 20px;
+      background: #fffdf7;
+      color: #26372c;
+      box-shadow: 0 20px 70px rgba(0, 0, 0, .25);
     }
 
     .yl-modal img {
-      display:block;
-      width:100%;
-      max-height:300px;
-      object-fit:cover;
-      border-radius:14px;
-      margin-bottom:18px;
+      display: block;
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      background: #f7f7f0;
     }
 
-    .yl-modal h2 { margin:8px 0; }
-    .yl-modal p { line-height:1.7; }
+    .yl-modal h2 {
+      margin: 8px 0;
+      color: #203f30;
+    }
+
+    .yl-modal p {
+      line-height: 1.7;
+    }
 
     .yl-modal-close {
-      position:absolute;
-      top:12px;
-      right:12px;
-      width:38px;
-      height:38px;
-      border:0;
-      border-radius:50%;
-      font-size:23px;
-      cursor:pointer;
-      background:#fff;
-      color:#263b30;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #e3e7dc;
+      border-radius: 50%;
+      background: #fff;
+      color: #203f30;
+      font-size: 24px;
+      cursor: pointer;
     }
 
     .yl-modal-actions {
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
     }
 
     .yl-modal-actions button {
-      flex:1;
-      min-width:130px;
-      border:0;
-      border-radius:10px;
-      padding:13px 16px;
-      cursor:pointer;
-      font-weight:600;
+      flex: 1;
+      min-width: 130px;
+      padding: 13px 16px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     .yl-modal-add {
-      background:#385b47;
-      color:#fff;
+      background: #315b43;
+      color: #fff;
     }
 
     .yl-modal-enquire {
-      background:#e9eee6;
-      color:#263b30;
+      background: #e6efe5;
+      color: #203f30;
+    }
+
+    @media (max-width: 480px) {
+      .yl-modal {
+        padding: 16px;
+      }
+
+      .yl-modal-actions {
+        flex-direction: column;
+      }
     }
   `;
 
   document.head.appendChild(style);
 }
 
-
-/* =====================================================
-   YOGA LIFE — COMPLETE WEBSITE JAVASCRIPT
-   PART 2 OF 2
-===================================================== */
-
 /* -------------------- VIEW PRODUCT -------------------- */
 
 function viewProduct(id) {
   const product = getProduct(id);
-
   if (!product) return;
 
   ensureProductModalStyles();
 
-  const oldModal = document.getElementById("productModal");
-
-  if (oldModal) oldModal.remove();
+  const existingModal = document.getElementById("productModal");
+  if (existingModal) existingModal.remove();
 
   const backdrop = document.createElement("div");
   backdrop.id = "productModal";
   backdrop.className = "yl-modal-backdrop";
 
   backdrop.innerHTML = `
-    <section class="yl-modal" role="dialog" aria-modal="true"
+    <section class="yl-modal"
+      role="dialog"
+      aria-modal="true"
       aria-labelledby="ylProductTitle">
 
       <button type="button" class="yl-modal-close"
         aria-label="Close product details">×</button>
 
-      <img src="${escapeHTML(product.image)}"
-        alt="${escapeHTML(product.name)}" data-product-image>
+      <img
+        src="${escapeHTML(product.image)}"
+        alt="${escapeHTML(product.name)}"
+        data-product-image
+      >
 
       <span>${escapeHTML(product.category)}</span>
       <h2 id="ylProductTitle">${escapeHTML(product.name)}</h2>
@@ -675,7 +778,9 @@ function viewProduct(id) {
   document.body.appendChild(backdrop);
   setupImageFallbacks(backdrop);
 
-  backdrop.querySelector(".yl-modal-close").addEventListener("click", function () {
+  const closeButton = backdrop.querySelector(".yl-modal-close");
+
+  closeButton.addEventListener("click", function () {
     backdrop.remove();
   });
 
@@ -690,10 +795,11 @@ function viewProduct(id) {
 
   backdrop.querySelector(".yl-modal-enquire").addEventListener("click", function () {
     openWhatsApp(
-      "Hello Yoga Life! I am interested in:\n\n" +
-      product.name +
-      "\nPrice: " + formatPrice(product.price) +
-      "\n\nPlease share availability and delivery details."
+      "Hello Sai Yoga Shop!\n\n" +
+      "I am interested in: " + product.name +
+      "\nCategory: " + product.category +
+      "\nListed Price: " + formatPrice(product.price) +
+      "\n\nPlease confirm availability, final price and delivery details."
     );
   });
 }
@@ -702,7 +808,6 @@ function viewProduct(id) {
 
 function addToCart(id) {
   const product = getProduct(id);
-
   if (!product) return;
 
   const key = String(product.id);
@@ -718,10 +823,12 @@ function changeQuantity(id, change) {
 
   if (!cart[key]) return;
 
-  cart[key] = Number(cart[key]) + Number(change);
+  const newQuantity = Number(cart[key]) + Number(change);
 
-  if (cart[key] <= 0) {
+  if (newQuantity <= 0) {
     delete cart[key];
+  } else {
+    cart[key] = newQuantity;
   }
 
   saveCart();
@@ -832,28 +939,33 @@ function renderCart() {
 
     return `
       <article class="cart-item">
-        <img src="${escapeHTML(product.image)}"
+        <img
+          src="${escapeHTML(product.image)}"
           alt="${escapeHTML(product.name)}"
-          loading="lazy" data-product-image>
+          loading="lazy"
+          data-product-image
+        >
 
         <div class="cart-item-info">
           <h4>${escapeHTML(product.name)}</h4>
-          <p>${formatPrice(product.price)}</p>
+          <p>${formatPrice(product.price)} each</p>
 
           <div class="cart-item-controls">
             <button type="button"
-              aria-label="Decrease quantity"
+              aria-label="Decrease quantity of ${escapeHTML(product.name)}"
               onclick="changeQuantity(${product.id}, -1)">−</button>
 
             <span>${item.quantity}</span>
 
             <button type="button"
-              aria-label="Increase quantity"
+              aria-label="Increase quantity of ${escapeHTML(product.name)}"
               onclick="changeQuantity(${product.id}, 1)">+</button>
           </div>
 
           <button type="button" class="cart-remove"
-            onclick="removeFromCart(${product.id})">Remove</button>
+            onclick="removeFromCart(${product.id})">
+            Remove
+          </button>
         </div>
 
         <strong class="cart-line-total">
@@ -870,7 +982,6 @@ function renderCart() {
 
 function openCart() {
   const overlay = document.getElementById("cartOverlay");
-
   if (!overlay) return;
 
   overlay.classList.add("open");
@@ -882,7 +993,6 @@ function openCart() {
 
 function closeCart() {
   const overlay = document.getElementById("cartOverlay");
-
   if (!overlay) return;
 
   overlay.classList.remove("open");
@@ -919,13 +1029,16 @@ function setupCartControls() {
       closeCart();
 
       const modal = document.getElementById("productModal");
-
       if (modal) modal.remove();
     }
   });
 }
 
-/* -------------------- WHATSAPP CHECKOUT -------------------- */
+/* =========================================================
+   PART 3/3: WHATSAPP CHECKOUT + BUTTONS + INITIALIZATION
+========================================================= */
+
+/* -------------------- WHATSAPP ORDER CHECKOUT -------------------- */
 
 function checkoutOnWhatsApp() {
   const items = getCartItems();
@@ -945,17 +1058,21 @@ function checkoutOnWhatsApp() {
   });
 
   const message =
-    "Hello Yoga Life! I would like to place an order.\n\n" +
-    "MY ORDER\n------------------------------\n" +
+    "Namaste Sai Yoga Shop!\n\n" +
+    "I would like to enquire about the following order:\n\n" +
+    "MY ORDER\n" +
+    "--------------------------------\n" +
     orderLines.join("\n\n") +
-    "\n\n------------------------------\n" +
-    "Estimated Total: " + formatPrice(getCartTotal()) +
-    "\n\nPlease confirm availability, final price and delivery charges before confirming my order.\n\nThank you!";
+    "\n\n--------------------------------\n" +
+    "Estimated Product Total: " + formatPrice(getCartTotal()) +
+    "\n\nPlease confirm product availability, final prices, " +
+    "delivery charges and delivery time before confirming my order." +
+    "\n\nThank you!";
 
   openWhatsApp(message);
 }
 
-/* -------------------- GENERAL BUTTONS -------------------- */
+/* -------------------- GENERAL WEBSITE BUTTONS -------------------- */
 
 function setupGeneralButtons() {
   document.querySelectorAll("[data-open-products]").forEach(function (button) {
@@ -978,7 +1095,7 @@ function setupGeneralButtons() {
 
       const message =
         button.getAttribute("data-whatsapp") ||
-        "Hello Yoga Life! I would like to know more about your products.";
+        "Namaste Sai Yoga Shop! I would like to know more about your products.";
 
       openWhatsApp(message);
     });
@@ -1009,24 +1126,96 @@ function setupFooterYear() {
   }
 }
 
+/* -------------------- OPTIONAL CONTACT FORM -------------------- */
+
+function setupContactForm() {
+  const form =
+    document.getElementById("contactForm") ||
+    document.getElementById("enquiryForm");
+
+  if (!form) return;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    const name = String(
+      formData.get("name") ||
+      formData.get("fullName") ||
+      ""
+    ).trim();
+
+    const phone = String(
+      formData.get("phone") ||
+      formData.get("mobile") ||
+      ""
+    ).trim();
+
+    const email = String(formData.get("email") || "").trim();
+
+    const subject = String(
+      formData.get("subject") ||
+      formData.get("product") ||
+      "General Enquiry"
+    ).trim();
+
+    const enquiry = String(
+      formData.get("message") ||
+      formData.get("enquiry") ||
+      ""
+    ).trim();
+
+    if (!name) {
+      showToast("Please enter your name.");
+      return;
+    }
+
+    const message =
+      "Namaste Sai Yoga Shop!\n\n" +
+      "I have a website enquiry.\n\n" +
+      "Name: " + name +
+      "\nPhone: " + (phone || "Not provided") +
+      "\nEmail: " + (email || "Not provided") +
+      "\nSubject: " + subject +
+      "\nMessage: " + (enquiry || "Please contact me with more details.") +
+      "\n\nPlease get in touch with me.";
+
+    openWhatsApp(message);
+  });
+}
+
+/* -------------------- GLOBAL ERROR SAFETY -------------------- */
+
+window.addEventListener("error", function (event) {
+  console.error("Website error:", event.message);
+});
+
 /* -------------------- INITIALIZE WEBSITE -------------------- */
 
-function initYogaLife() {
+function initSaiYogaShop() {
   setupNavigation();
   setupProductSearch();
   setupCartControls();
   setupGeneralButtons();
   setupFooterYear();
+  setupContactForm();
 
   renderFeaturedProducts();
   renderProducts();
   renderCart();
 
   showPage("home");
+
+  console.info("Sai Yoga Shop initialized. Products:", products.length);
 }
 
+/* Avoid running initialization before HTML is ready. */
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initYogaLife);
+  document.addEventListener("DOMContentLoaded", initSaiYogaShop, {
+    once: true
+  });
 } else {
-  initYogaLife();
-  }
+  initSaiYogaShop();
+       }
+
